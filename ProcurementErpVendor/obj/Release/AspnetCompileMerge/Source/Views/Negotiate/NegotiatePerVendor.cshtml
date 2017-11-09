@@ -1,0 +1,100 @@
+﻿@model IEnumerable<ProcurementErpVendor.Models.RFQITEMViewModel>
+<form method="post" action="@Url.Action("Negotiate", "Negotiate")" style="padding:2% 1% 2% 1%;">
+    <table class="table table-bordered table-striped">
+        <tr>
+            <th colspan="6" class="text-uppercase text-bold">Enter Negotiated Value</th>
+        </tr>
+        <tr>
+            <th>Item No.</th>
+            <th>Quantity</th>
+            <th>Unit of Measurement</th>
+            <th>Goods & Services Description</th>
+            <th>Unit Price</th>
+            <th>Total Price</th>
+        </tr>
+        @if (Model != null)
+        {
+            int count = 1;
+            int _count = 0;
+            foreach (var item in Model)
+            {
+                <tr>
+                    <td>@count</td>
+                    <td id="Qty_@count">@item.QUANTITY</td>
+                    <td>@item.UNIT_OF_MEAS</td>
+                    <td>@item.DESCRIPTION</td>
+                    <td>
+                        @*@Html.TextBoxFor(model => item.UNIT_PRICE, new { @onchange = "CalculateTotal(" + count + ")", @id = "Price_" + count, @class = "form-control" })*@
+                        <input type="number" onchange="CalculateTotal(@count)" id="Price_@count" name="inputs[@_count].UNIT_PRICE" class="form-control" />
+
+                        @*@Html.HiddenFor(model => item.ITEM_NO, new { @value = item.ITEM_NO })*@
+                        <input type="hidden" name="inputs[@_count].ITEM_NO" value="@item.ITEM_NO" />
+                    </td>
+                    <td>
+                        <p class="form-static-control"><span id="currency_@count"></span> <span id="totalPrice_@count" class="total"></span></p>
+                        @*@Html.HiddenFor(model => item.TOTAL_PRICE, new { @id = "totalPriceField_" + @count })*@
+                        <input type="hidden" name="inputs[@_count].TOTAL_PRICE" id="totalPriceField_@count" />
+                        
+                    </td>
+                </tr>
+                count++;
+                _count++;
+            }
+        }
+        <tr>
+            <td colspan="3">&nbsp;</td>
+            <td colspan="2">
+                <table class="table table-bordered">
+                    <tr>
+                        <th colspan="2">Total Amount before Tax</th>
+                    </tr>
+                    <tr>
+                        <th colspan="2">
+                            <span class="text-bold">VAT (%)</span>
+                            <input class="pull-right" name="VAT" id="VAT" onchange="getVat()" type="number" />
+                           
+                            <input type="hidden" value="@ViewBag.NegNum" name="NegNumber" />
+                            <input type="hidden" value="@ViewBag.TempNo" name="TempNo" />
+                        </th>
+                    </tr>
+                    <tr>
+                        <th colspan="2">Grand Total including VAT</th>
+                    </tr>
+                </table>
+            </td>
+            <td>
+                <table class="table table-bordered">
+                    <tr>
+                        <td>
+                            <span id="TotalBFTaxCur"></span> <span id="TotalBFTax"></span>
+                            
+                            <input type="hidden" name="TOTALAMT" id="TotalBFTaxField" />
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span id="TotalVatCur"></span> <span id="TotalVat"></span>
+                           <input type="hidden" name="VATVALUE" id="TotalVatField" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span id="GrandTotalCur"></span> <span id="GrandTotal"></span>
+                            <input type="hidden" name="GRANDTOTAL" id="GrandTotalField" />
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        
+        <tr>
+            <td colspan="6" class="text-center">
+                <input type="submit" onsubmit="windows.alert('Hi')" value="Submit" class="btn btn-md btn-success" />
+            </td>
+        </tr>
+    </table>
+</form>
+
+
+

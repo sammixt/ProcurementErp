@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="0ea7837f-4e0d-48fd-b784-c1d288c34545" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://ubniisapps:8141/AppSmsService/Administration.svc?wsdl" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="Administration.xsd" MetadataType="Schema" ID="33a59704-c547-48ea-8ce4-f5d8cdf0da7d" SourceId="1" SourceUrl="http://ubniisapps:8141/AppSmsService/Administration.svc?xsd=xsd1" />
+    <MetadataFile FileName="Administration.wsdl" MetadataType="Wsdl" ID="7060fe1a-94e4-4d82-8698-62fa3e7ebc7f" SourceId="1" SourceUrl="http://ubniisapps:8141/AppSmsService/Administration.svc?wsdl=wsdl0" />
+    <MetadataFile FileName="Administration1.xsd" MetadataType="Schema" ID="5723cc11-7ff2-40cc-8976-cbd63378ec48" SourceId="1" SourceUrl="http://ubniisapps:8141/AppSmsService/Administration.svc?xsd=xsd2" />
+    <MetadataFile FileName="UBN_SMS_Service.wsdl" MetadataType="Wsdl" ID="e26162e9-c70f-450c-864b-18d2a20a9880" SourceId="1" SourceUrl="http://ubniisapps:8141/AppSmsService/Administration.svc?wsdl" />
+    <MetadataFile FileName="Administration2.xsd" MetadataType="Schema" ID="7012a2ad-29df-44f6-bd33-5b21f5977a0f" SourceId="1" SourceUrl="http://ubniisapps:8141/AppSmsService/Administration.svc?xsd=xsd0" />
+    <MetadataFile FileName="Administration3.xsd" MetadataType="Schema" ID="751b4f64-3be2-420f-a6de-8ac8cfe94e32" SourceId="1" SourceUrl="http://ubniisapps:8141/AppSmsService/Administration.svc?xsd=xsd4" />
+    <MetadataFile FileName="Administration4.xsd" MetadataType="Schema" ID="69f1dfb1-9911-4a25-89dc-12ac9b60cc07" SourceId="1" SourceUrl="http://ubniisapps:8141/AppSmsService/Administration.svc?xsd=xsd3" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

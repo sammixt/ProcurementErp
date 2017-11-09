@@ -1,0 +1,1 @@
+﻿There have been an update on a request ({RequestType}), which your company ({CompanyName}) was selected to provide a feedback. Logon to our portal with the credential provided to view details. Username : {username}, Password : {password}.

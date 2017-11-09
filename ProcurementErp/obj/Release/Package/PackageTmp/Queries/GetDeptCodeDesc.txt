@@ -1,0 +1,2 @@
+﻿SELECT * FROM gltm_mis_CODE TT 
+ WHERE mis_class ='COST_CEN' and MIS_CODE = 

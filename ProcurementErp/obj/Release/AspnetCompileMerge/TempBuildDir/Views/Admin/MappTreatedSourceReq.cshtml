@@ -1,0 +1,68 @@
+﻿@model IEnumerable<ProcurementErp.ViewModels.SourceRequestViewModel>
+<section class="content" id="History">
+<div class="row">
+    <div class="col-md-12">
+        <div class="box box-primary">
+            <div class="box-header with-border">
+                <h3 class="box-title">Request History</h3>
+            </div>
+            <!-- /.box-header -->
+            <!-- form start -->
+            <div class="box-body">
+                <table id="RequestHistory" class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th>Initiation Date</th>
+                            <th>Initiator</th>
+                            <th>Description</th>
+                            <th>(HOD) Approval</th>
+                            <th>Procurement State</th>
+                            <th>View</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@Html.DisplayFor(i => item.INITIATION_DATE)</td>
+                                <td>@Html.DisplayFor(i => item.INITIATOR_NAME)</td>
+                                <td>@Html.DisplayFor(i => item.ITEM_DESCRIPTION)</td>
+                                <td>
+                                    @if (item.LINE_MANAGER_APPR == "APPROVED")
+                                    {
+                                        <span class="label label-success">@Html.DisplayFor(i => item.LINE_MANAGER_APPR)</span>
+
+                                    }
+                                    else if (item.LINE_MANAGER_APPR == "DECLINED")
+                                    {
+                                        <span class="label label-danger">@Html.DisplayFor(i => item.LINE_MANAGER_APPR)</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="label label-warning">@Html.DisplayFor(i => item.LINE_MANAGER_APPR)</span>
+
+                                    }
+                                </td>
+                                <td>
+                                    @if (item.BUYER_STATUS == "RECEIVED")
+                                    {
+                                        <span class="label label-success">@Html.DisplayFor(i => item.BUYER_STATUS)</span>
+
+                                    }
+                                    else if (item.BUYER_STATUS == "CLOSED")
+                                    {
+                                        <span class="label label-danger">@Html.DisplayFor(i => item.BUYER_STATUS)</span>
+                                    }
+
+                                </td>
+                                <td><a class="btn btn-primary view" href="#" onclick="mapRequest(@item.TEMP_ID)" >MAP</a></td>
+                            </tr>
+                        }
+                    </tbody>
+
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+    </section>

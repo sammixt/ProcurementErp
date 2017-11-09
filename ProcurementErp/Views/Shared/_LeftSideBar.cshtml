@@ -1,0 +1,55 @@
+﻿@using System.Security.Claims;
+@using System.Security.Claims;
+
+@if (Request.IsAuthenticated)
+{
+    var identity = (ClaimsIdentity)User.Identity;
+    var name = identity.FindFirst(ClaimTypes.GivenName).Value;
+    var BranchCode = identity.FindFirst(ClaimTypes.PostalCode).Value;
+    var Dept = identity.FindFirst(ClaimTypes.UserData).Value;
+<aside class="main-sidebar">
+    <!-- sidebar: style can be found in sidebar.less -->
+    <section class="sidebar">
+        <!-- Sidebar user panel -->
+        <div class="user-panel">
+            <div class="pull-left image">
+                <img src="@Url.Content("~/dist/img/defaultImage.png")" class="img-circle" alt="User Image">
+            </div>
+            <div class="pull-left info">
+                <p>@name</p>
+                <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+            </div>
+        </div>
+        
+        <!-- sidebar menu: : style can be found in sidebar.less -->
+        <ul class="sidebar-menu">
+            <li class="header">MAIN NAVIGATION</li>
+            <li class="active treeview">
+                <a href="#">
+                    <i class="fa fa-dashboard"></i> <span>Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a href="@Url.Action("NewRequest","Home")">
+                    <i class="fa fa-plus"></i> <span>New Request</span>
+                </a>
+            </li>
+            <li>
+                <a href="@Url.Action("RequestPendingApproval","Home")">
+                    <i class="fa fa-inbox"></i> <span>Pending Approval</span>
+                    <span class="pull-right-container" id="PendingReqCount">
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a href="@Url.Action("RequestHistory","Home")">
+                    <i class="fa fa-history"></i> <span>Request History</span>
+                    <span class="pull-right-container" id="ReqHistCount">
+                    </span>
+                </a>
+            </li>
+        </ul>
+    </section>
+    <!-- /.sidebar -->
+</aside>
+}

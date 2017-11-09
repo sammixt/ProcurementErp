@@ -1,0 +1,221 @@
+﻿@model ProcurementErp.ViewModels.RFIRFPComboViewModel
+@{
+    ViewBag.Title = "RFIVendorResponse";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header" id="RequestHistoryContainer">
+        <h1>
+            Request For Information
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li class="">Vendor Response</li>
+            <li class="active">RFI</li>
+        </ol>
+    </section>
+    <section class="content" id="Roles">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="box box-primary">
+                    <div class="box-header with-border">
+                        <p class="text-bold" style="text-transform:uppercase">
+                            @Model.Vendor.VENDOR_NAME
+                        </p>
+
+                        <div class="clearfix"></div>
+                    </div>
+                    <!--Req form II -->
+                    <div class="box-body">
+                        <div class="col-md-12">
+
+                            <div class="form-group col-md-12">
+                                <div class="box-body">
+                                    <table class="table table-bordered table-striped">
+                                        <tr>
+                                            <td colspan="2"><p class="text-center text-uppercase text-bold">request for information (rfi)</p></td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <table style="width:100%">
+                                                    <tr>
+                                                        <th>Project Title</th>
+                                                        <td>@Model.Request.PRJECT_TITLE</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>Issue Date</th>
+                                                        <td>@Model.Request.INITIATION_DATE.Value.ToShortDateString()</td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                            <td>
+                                                <table style="width:100%">
+                                                    <tr>
+                                                        <th>Due Date</th>
+                                                        <td>@Model.Request.DUE_DATE.Value.ToShortDateString()</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>Due Time</th>
+                                                        <td>
+                                                            @Model.Request.DUE_TIME
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>Reference Number</th>
+                                                        <td>
+                                                            @Model.RefNum.REF_NO
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2">
+                                                <table class="table table-bordered table-striped">
+                                                    <tr>
+                                                        <th class="text-uppercase text-info">Introduction</th>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <label class="control-label">Brief overview of UBN</label>
+                                                            <p class="form-control-static">@Model.Request.UBN_OVERVIEW</p>
+                                                        </td>
+                                                    </tr>
+
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2">
+                                                <table class="table table-bordered table-striped">
+                                                    <tr>
+                                                        <th class="text-uppercase text-info">Project Overview</th>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <label class="control-label">Project Objectives</label>
+                                                            <p class="form-control-static">@Model.Request.PROJECT_OBJECTIVE</p>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <label class="control-label">Scope of Work</label>
+                                                            <p class="form-control-static">@Model.Request.WORK_SCOPE</p>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <table class="table table-bordered table-striped">
+                                                    <tr>
+                                                        <th colspan="2" class="text-uppercase text-info">CONTACT PERSON</th>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>NAME</td>
+                                                        <td>
+                                                            @Model.Technical.NAME
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>DESIGNATION</td>
+                                                        <td>
+                                                            @Model.Technical.DESIGNATION
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>DEPARTMENT</td>
+                                                        <td>
+                                                            @Model.Technical.DEPARTMENT
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>TELEPHONE</td>
+                                                        <td>
+                                                            @Model.Technical.TELEPHONE
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>EMAIL</td>
+                                                        <td>
+                                                            @Model.Technical.EMAIL
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2">
+                                                <table class="table table-bordered table-striped">
+                                                    <tr>
+                                                        <th colspan="2" class="text-uppercase text-info">rfi timelines</th>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Date of Issue</td>
+                                                        <td>@Model.Request.ISSUE_DATE.Value.ToShortDateString()</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Last Date for receipt of Queries</td>
+                                                        <td>@Model.Request.LST_QRY_RECEIPT_DATE.Value.ToShortDateString()</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Last date for bank's response to Queries</td>
+                                                        <td>@Model.Request.LST_RPF_RECPT_DATE.Value.ToShortDateString()</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Date of receipt of response to RFP</td>
+                                                        <td>@Model.Request.BANK_QRY_RES_DATE.Value.ToShortDateString()</td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2">
+                                                <table class="table table-bordered table-striped">
+                                                    <tr>
+                                                        <th class="text-uppercase text-bold text-info"> SPECIFIC INFORMATION REQUESTED</th>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <p class="form-control-static">@Html.Raw(Model.Item.FirstOrDefault().RFI_INFO)</p>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2">
+                                                <table class="table table-bordered table-striped">
+                                                    <tr>
+                                                        <th class="text-uppercase text-bold text-info"> response</th>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <p class="form-control-static">@Html.Raw(Model.proposal.PROPOSAL)</p>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td colspan="2" class="text-center"><a href="@Url.Action("RFIConfidentiality", "Terms")" data-toggle="modal" data-target="#modal-warning" class="btn btn-danger">TERMS/CONDITIONS</a></td>
+                                        </tr>
+                                    </table>
+
+                                </div>
+
+                            </div>
+                            <!-- /.box-body -->
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

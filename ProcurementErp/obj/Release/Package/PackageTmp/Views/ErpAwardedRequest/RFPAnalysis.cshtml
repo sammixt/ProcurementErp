@@ -1,0 +1,263 @@
+﻿@model IEnumerable<ProcurementErp.ViewModels.AnalysisViewModel>
+@using ProcurementErp.BLL
+@{
+    ViewBag.Title = "Analysis";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1>
+            Analyse Vendor Response
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="@Url.Action("Index","Admin")"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li class="">Vendor Response</li>
+            <li class="active">Comparism</li>
+        </ol>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+        <!-- /.row -->
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="box box-danger">
+                    <div class="box-header">
+                        <h3 class="box-title">Vendors Response</h3>
+                    </div>
+                    <!-- /.box-header -->
+                    <div class="box-body">
+                        <div class="col-md-12" style="overflow-x:auto">
+                            @if (ViewBag.ErrorMessage != null)
+                            {
+                                <p class="text-danger text-bold">@ViewBag.ErrorMessage</p>
+                            }
+                            <table id="example2" class="table table-bordered table-hover">
+                                <thead>
+                                    <tr>
+                                        <td colspan="@(Model.FirstOrDefault()._VendorsQuote.Count()*2 + 2)">
+                                            <span class="pull-left"><strong>REQUEST TYPE : </strong> <span class="text-uppercase text-info text-bold">@ViewBag.ReqType</span></span>
+                                            <span class="pull-right"><strong>REFERENCE NUMBER : </strong> <span class="text-uppercase text-info text-bold">@ViewBag.ReferenceNum</span></span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th colspan="2">&nbsp;</th>
+                                        @foreach (var vendor in Model.FirstOrDefault()._VendorsQuote)
+                                        {
+                                            if (vendor._VendorDetails.STATUS == "PROCESSING")
+                                            {
+                                                <th colspan="2" class="text-center text-bold text-success">NEGOTIATED COST</th>
+                                            }
+                                            else
+                                            {
+                                                <th colspan="2" class="text-center">@vendor._VendorDetails.VENDOR_NAME</th>
+                                            }
+
+
+                                        }
+                                    </tr>
+                                    <tr>
+                                        <th>Items</th>
+                                        <th>Quantity</th>
+
+                                        @foreach (var vendor in Model.FirstOrDefault()._VendorsQuote)
+                                        {
+                                            <td>Unit Price</td>
+                                            <td>Total Price</td>
+                                        }
+                                    </tr>
+                                </thead>
+                                <tbody id="RequestData">
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <th>@item.DESCRIPTION</th>
+                                            <td>@item.QUANTITY</td>
+                                            @foreach (var vendor in item._VendorsQuote)
+                                            {
+                                                <td>@Html.FormatNumber(vendor.UNIT_PRICE)</td>
+                                                <td>@Html.FormatNumber(vendor.TOTAL_PRICE)</td>
+                                            }
+                                        </tr>
+                                    }
+                                    <tr>
+                                        <th colspan="2">&nbsp;</th>
+
+                                        @foreach (var vendor in Model.FirstOrDefault()._VendorsQuote)
+                                        {
+                                            <th>Total </th>
+                                            <th>
+
+                                                @Html.FormatNumber(vendor._VendorDetails.TOTALBFTAX)
+
+
+                                            </th>
+                                        }
+                                    </tr>
+                                    <tr>
+                                        <th colspan="2">&nbsp;</th>
+
+                                        @foreach (var vendor in Model.FirstOrDefault()._VendorsQuote)
+                                        {
+                                            <th>VAT</th>
+                                            <th>
+
+                                                @Html.FormatNumber(vendor._VendorDetails.VAT)
+
+
+                                            </th>
+                                        }
+                                    </tr>
+                                    <tr>
+                                        <th colspan="2">&nbsp;</th>
+
+                                        @foreach (var vendor in Model.FirstOrDefault()._VendorsQuote)
+                                        {
+                                            <th>Grand Total</th>
+                                            <th>
+
+                                                @Html.FormatNumber(vendor._VendorDetails.GRANDTOTAL)
+
+
+                                            </th>
+
+                                        }
+                                    </tr>
+
+                                </tbody>
+                            </table>
+
+                        </div>
+                        <div class="col-md-12">
+                            <br />
+                            <div class="col-md-4 col-md-offset-5">
+                                <a class="btn btn-sm btn-foursquare" href="@Url.Action("ExportToExcelII", "ResponseAnalysis", new { TempNo = ViewBag.TempNo })" onclick="ExportToExcel();"> EXPORT TO EXCEL </a>
+                                @*<a href="@Url.Action("index", "Negotiate", new { TempNo = ViewBag.TempNo })" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#myModal">Negotiate Quote</a>*@
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- /.box-body -->
+                </div>
+            </div>
+        </div>
+        <!-- Main row -->
+        <!-- /.row (main row) -->
+
+    </section>
+    <!-- /.content -->
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Enter Negotiated Value</h4>
+            </div>
+            <div class="modal-body">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<style type="text/css">
+    .modal-dialog {
+        width: 85%; /* New width for default modal */
+        height: 500px;
+    }
+
+    .modal-body {
+        max-height: 800px;
+    }
+
+    .modal-sm {
+        width: 350px; /* New width for small modal */
+    }
+</style>
+@section scripts {
+    @if (ViewBag.SuccessMessage != null)
+    {
+        <script>
+        $(function () {
+            swal("@ViewBag.SuccessMessage");
+        })
+        </script>
+    }
+
+    <script>
+
+        //$(function () {
+        //    //var start = new Date;
+        //    //var date1 = new Date("DateTime.Now.ToShortDateString()");
+        //    //var date2 = new Date("Model.Request.DUE_DATE.Value.ToShortDateString()");
+        //    //var timeDiff = Math.abs(date2.getTime() - date1.getTime());
+        //    //var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
+        //    //$('.Timer').text(diffDays + " Days Left");
+
+        //})
+
+        function CalculateTotal(id) {
+            //alert(id);
+            var $total = $('.total').length;
+            var qty = $('#Qty_' + id).text()
+            var _qty = parseFloat(qty);
+            var price = $('#Price_' + id).val();
+            var _price = parseFloat(price);
+            var _totalPrice = _qty * _price;
+            $('#currency_' + id).text('NGN');
+            $('#totalPrice_' + id).text(_totalPrice);
+            $('#totalPriceField_' + id).val(_totalPrice)
+            var $sum = 0;
+            for (var i = 1; i < $total + 1; i++) {
+                if (isNaN(parseFloat($('#totalPrice_' + i).text()))) {
+                    $sum += 0;
+                } else {
+                    $sum += parseFloat($('#totalPrice_' + i).text());
+                }
+                //$sum += isNaN(parseFloat($('#totalPrice_' + i).text())) ? 0 : parseFloat($('#totalPrice_' + i).text());
+                //alert($('#totalPrice_' + i).text());
+                //alert(parseFloat($sum));
+            }
+
+            $('#TotalBFTax').text(parseFloat($sum));
+            $('#TotalBFTaxField').val(parseFloat($sum));
+            $('#TotalBFTaxCur').text('NGN');
+            //alert("Quantity : "+_qty);
+            //alert("Price : "+_price);
+            //alert("Total : "+_totalPrice)
+            //alert("Total string : "+totalPrice)
+        }
+
+        function getVat() {
+            var $vat = $('#VAT').val();
+            var _vat = parseFloat($vat);
+            var $total = $('#TotalBFTax').text();
+            var _total = parseFloat($total);
+            var percent = _vat / 100;
+            var grandTotal = _total * percent;
+            $('#TotalVat').text(parseFloat(grandTotal));
+            $('#TotalVatField').val(parseFloat(grandTotal));
+            $('#TotalVatCur').text('NGN');
+            //get grand total amount
+            var $totalAmt = $('#TotalBFTax').text()
+            _totalAmt = parseFloat($totalAmt);
+            var $totalVat = $('#TotalVat').text();
+            _totalVat = parseFloat($totalVat)
+            var grandTotal = (_totalAmt + _totalVat);
+            $('#GrandTotal').text(grandTotal);
+            $('#GrandTotalField').val(grandTotal);
+            $('#GrandTotalCur').text('NGN');
+
+        }
+    </script>
+}

@@ -1,0 +1,307 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model.Store" Provider="Oracle.ManagedDataAccess.Client" ProviderManifestToken="11.2" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="SOURCING_CATEGORIES">
+    <Key>
+      <PropertyRef Name="CATEGORY_NUM" />
+    </Key>
+    <Property Name="CATEGORY_NUM" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="CATEGORY_NAME" Type="varchar2" MaxLength="300" />
+    <Property Name="CATEGORY_PARENT" Type="number" Precision="38" Scale="0" />
+    <Property Name="CATEGORY_STATE" Type="varchar2" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="SOURCING_CONTACTEDVENDOR">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="VENDOR_ID" Type="number" Precision="38" Scale="0" />
+    <Property Name="TEMP_NO" Type="number" Precision="38" Scale="0" />
+    <Property Name="VENDOR_NAME" Type="varchar2" MaxLength="500" />
+    <Property Name="RESPONSE_DATE" Type="date" />
+    <Property Name="AUTO_EMAIL" Type="varchar2" MaxLength="100" />
+    <Property Name="ADDRESS" Type="varchar2" MaxLength="500" />
+    <Property Name="TELEPHONE" Type="varchar2" MaxLength="15" />
+    <Property Name="EXPECTED_DELIVERY_DATE" Type="date" />
+    <Property Name="PAYMENT_TERMS" Type="varchar2" MaxLength="500" />
+    <Property Name="SUPPLIERS_QUOTE" Type="varchar2" MaxLength="500" />
+    <Property Name="EMAIL" Type="varchar2" MaxLength="100" />
+    <Property Name="VAT" Type="float" Precision="126" Scale="0" />
+    <Property Name="TOTALBFTAX" Type="number" Precision="38" Scale="0" />
+    <Property Name="GRANDTOTAL" Type="float" Precision="126" Scale="0" />
+    <Property Name="EXECTOTAL" Type="float" Precision="126" Scale="0" />
+    <Property Name="EXECGRANDTOTAL" Type="float" Precision="126" Scale="0" />
+    <Property Name="CONTACT_NAME" Type="varchar2" MaxLength="255" />
+    <Property Name="STATUS" Type="varchar2" MaxLength="50" />
+    <Property Name="EXECVAT" Type="float" Precision="126" Scale="0" />
+    <Property Name="TOTALBFTAX_PROPOSAL" Type="number" Precision="38" Scale="0" />
+    <Property Name="VAT_PROPOSAL" Type="float" Precision="126" Scale="0" />
+    <Property Name="GRANDTOTAL_PROPOSAL" Type="float" Precision="126" Scale="0" />
+    <Property Name="NEG_STATUS" Type="varchar2" MaxLength="20" />
+    <Property Name="VERDICT_ISSUE_DATE" Type="date" />
+    <Property Name="VERDICT_ACCEPT_DATE" Type="date" />
+  </EntityType>
+  <EntityType Name="SOURCING_CONTACTPERSON">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="TEMP_NO" Type="number" Precision="38" Scale="0" />
+    <Property Name="NAME" Type="varchar2" MaxLength="200" />
+    <Property Name="DESIGNATION" Type="varchar2" MaxLength="200" />
+    <Property Name="DEPARTMENT" Type="varchar2" MaxLength="300" />
+    <Property Name="TELEPHONE" Type="varchar2" MaxLength="15" />
+    <Property Name="CONTACT_TYPE" Type="varchar2" MaxLength="30" />
+    <Property Name="EMAIL" Type="varchar2" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="SOURCING_MESSAGE">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="TEMP_ID" Type="number" Precision="38" Scale="0" />
+    <Property Name="CREATORID" Type="number" Precision="38" Scale="0" />
+    <Property Name="CREATORTYPE" Type="varchar2" MaxLength="15" />
+    <Property Name="MAIL_SUBJECT" Type="varchar2" MaxLength="200" />
+    <Property Name="PARENT_MESSAGE_ID" Type="number" Precision="38" Scale="0" />
+    <Property Name="DATE_CREATED" Type="date" />
+    <Property Name="MESSAGE_BODY" Type="long" />
+  </EntityType>
+  <EntityType Name="SOURCING_MESSAGE_RECIPIENT">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="RECIPIENT_ID" Type="number" Precision="38" Scale="0" />
+    <Property Name="RECIPIENT_GROUP_ID" Type="number" Precision="38" Scale="0" />
+    <Property Name="RECIPIENT_TYPE" Type="varchar2" MaxLength="15" />
+    <Property Name="MESSAGE_ID" Type="number" Precision="38" Scale="0" />
+    <Property Name="IS_READ" Type="number" Precision="38" Scale="0" />
+  </EntityType>
+  <EntityType Name="SOURCING_NEG_PRICE">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="ITEM_NO" Type="number" Precision="38" Scale="0" />
+    <Property Name="TEMP_NO" Type="number" Precision="38" Scale="0" />
+    <Property Name="UNIT_PRICE" Type="number" Precision="10" Scale="2" />
+    <Property Name="TOTAL_PRICE" Type="number" Precision="10" Scale="2" />
+    <Property Name="NEG_NO" Type="number" Precision="38" Scale="0" />
+  </EntityType>
+  <EntityType Name="SOURCING_NEGOTIATIONS">
+    <Key>
+      <PropertyRef Name="NEG_NO" />
+    </Key>
+    <Property Name="NEG_NO" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="RESPONSE_NO" Type="number" Precision="38" Scale="0" />
+    <Property Name="NEGOTIATOR" Type="varchar2" MaxLength="50" />
+    <Property Name="TEMP_ID" Type="number" Precision="38" Scale="0" />
+    <Property Name="VENDOR_ID" Type="number" Precision="38" Scale="0" />
+    <Property Name="RES_DATE" Type="date" />
+    <Property Name="TOTAL_AMT" Type="number" Precision="10" Scale="2" />
+    <Property Name="VAT" Type="number" Precision="38" Scale="0" />
+    <Property Name="VATVALUE" Type="number" Precision="10" Scale="2" />
+    <Property Name="GRANDTOTAL" Type="number" Precision="10" Scale="2" />
+    <Property Name="STATUS" Type="varchar2" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="SOURCING_PROPOSAL">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="VENDORID" Type="number" Precision="38" Scale="0" />
+    <Property Name="TEMPID" Type="number" Precision="38" Scale="0" />
+    <Property Name="PROPOSAL" Type="long" />
+    <Property Name="REQUEST_TYPE" Type="number" Precision="38" Scale="0" />
+  </EntityType>
+  <EntityType Name="SOURCING_REF_TEMP_LINK">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="TEMP_NO" Type="number" Precision="38" Scale="0" />
+    <Property Name="REF_NO" Type="varchar2" MaxLength="20" />
+    <Property Name="REQ_TYPE" Type="number" Precision="38" Scale="0" />
+  </EntityType>
+  <EntityType Name="SOURCING_REQUEST">
+    <Key>
+      <PropertyRef Name="TEMP_ID" />
+    </Key>
+    <Property Name="TEMP_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="ITEM_CATEGORY" Type="varchar2" MaxLength="500" />
+    <Property Name="INITIATOR_NAME" Type="varchar2" MaxLength="200" />
+    <Property Name="INITIATOR_NUMBER" Type="varchar2" MaxLength="15" />
+    <Property Name="INITIATING_BRANCH" Type="varchar2" MaxLength="200" />
+    <Property Name="INITIATING_BRANCHCODE" Type="varchar2" MaxLength="4" />
+    <Property Name="INITIATING_DEPT" Type="varchar2" MaxLength="200" />
+    <Property Name="INITIATING_DEPTCODE" Type="varchar2" MaxLength="10" />
+    <Property Name="INITIATION_DATE" Type="date" />
+    <Property Name="LINE_MANAGER_NUM" Type="varchar2" MaxLength="15" />
+    <Property Name="LINE_MANAGER_NAME" Type="varchar2" MaxLength="100" />
+    <Property Name="LINE_MANAGER_APPR" Type="varchar2" MaxLength="30" />
+    <Property Name="LINE_MANAGER_APPR_DATE" Type="date" />
+    <Property Name="BUYER_STATUS" Type="varchar2" MaxLength="30" />
+    <Property Name="BUYER_COMMENT" Type="varchar2" MaxLength="500" />
+    <Property Name="PREFERED_VENDOR" Type="varchar2" MaxLength="500" />
+    <Property Name="PREFERED_VENDOR_ID" Type="varchar2" MaxLength="10" />
+    <Property Name="ITEM_DESCRIPTION" Type="varchar2" MaxLength="500" />
+    <Property Name="EXPECTED_DELIVERY_DATE" Type="date" />
+    <Property Name="INITIATOR_EMAIL" Type="varchar2" MaxLength="150" />
+    <Property Name="LINE_MANAGER_EMAIL" Type="varchar2" MaxLength="150" />
+    <Property Name="ITEM_CATEGORY_ID" Type="varchar2" MaxLength="150" />
+    <Property Name="PROCUREMENT_BUYER" Type="varchar2" MaxLength="200" />
+    <Property Name="PROCUREMENT_BUYER_ID" Type="number" Precision="38" Scale="0" />
+    <Property Name="LINE_MANAGER_COMMENT" Type="varchar2" MaxLength="500" />
+    <Property Name="MAPTOREQUEST" Type="number" Precision="38" Scale="0" />
+  </EntityType>
+  <EntityType Name="SOURCING_REQUEST_FILES">
+    <Key>
+      <PropertyRef Name="FIILE_ID" />
+    </Key>
+    <Property Name="FIILE_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="SOURCE_REQ_ID" Type="number" Precision="38" Scale="0" />
+    <Property Name="FILENAME" Type="varchar2" MaxLength="255" />
+    <Property Name="FILETYPE" Type="varchar2" MaxLength="50" />
+    <Property Name="FILE_PATH" Type="varchar2" MaxLength="300" />
+    <Property Name="VENDORID" Type="number" Precision="38" Scale="0" />
+  </EntityType>
+  <EntityType Name="SOURCING_REQUEST_TYPE">
+    <Key>
+      <PropertyRef Name="REQUEST_ID" />
+    </Key>
+    <Property Name="REQUEST_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="REQUEST_NAME" Type="varchar2" MaxLength="50" />
+    <Property Name="REQUEST_SHORTCODE" Type="varchar2" MaxLength="5" />
+  </EntityType>
+  <EntityType Name="SOURCING_RFP_RFI_REQ">
+    <Key>
+      <PropertyRef Name="TEMP_ID" />
+    </Key>
+    <Property Name="TEMP_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="PRJECT_TITLE" Type="varchar2" MaxLength="300" />
+    <Property Name="ISSUE_DATE" Type="date" />
+    <Property Name="DUE_DATE" Type="date" />
+    <Property Name="DUE_TIME" Type="varchar2" MaxLength="10" />
+    <Property Name="UBN_OVERVIEW" Type="varchar2" MaxLength="500" />
+    <Property Name="PROJECT_OBJECTIVE" Type="varchar2" MaxLength="1000" />
+    <Property Name="WORK_SCOPE" Type="varchar2" MaxLength="1000" />
+    <Property Name="TECHNICAL_PROPOSAL" Type="varchar2" MaxLength="4000" />
+    <Property Name="LST_QRY_RECEIPT_DATE" Type="date" />
+    <Property Name="BANK_QRY_RES_DATE" Type="date" />
+    <Property Name="LST_RPF_RECPT_DATE" Type="date" />
+    <Property Name="INITIATOR" Type="number" Precision="38" Scale="0" />
+    <Property Name="INITIATOR_NAME" Type="varchar2" MaxLength="200" />
+    <Property Name="INITIATION_DATE" Type="date" />
+    <Property Name="STATUS" Type="varchar2" MaxLength="50" />
+    <Property Name="NEGTOTALAMT" Type="number" Precision="38" Scale="0" />
+    <Property Name="NEGVAT" Type="number" Precision="38" Scale="0" />
+    <Property Name="NEGVATVALUE" Type="number" Precision="38" Scale="0" />
+    <Property Name="NEGGRANDTOTAL" Type="number" Precision="38" Scale="0" />
+    <Property Name="EXECTOTALAMT" Type="number" Precision="38" Scale="0" />
+    <Property Name="EXECVAT" Type="number" Precision="38" Scale="0" />
+    <Property Name="EXECVATVALUE" Type="number" Precision="38" Scale="0" />
+    <Property Name="EXECGRANDTOTAL" Type="number" Precision="38" Scale="0" />
+    <Property Name="MAPPING" Type="number" Precision="38" Scale="0" />
+  </EntityType>
+  <EntityType Name="SOURCING_RFQ_ITEM">
+    <Key>
+      <PropertyRef Name="ITEM_NO" />
+    </Key>
+    <Property Name="ITEM_NO" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="TEMP_NO" Type="number" Precision="38" Scale="0" />
+    <Property Name="QUANTITY" Type="varchar2" MaxLength="10" />
+    <Property Name="UNIT_OF_MEAS" Type="varchar2" MaxLength="10" />
+    <Property Name="DESCRIPTION" Type="varchar2" MaxLength="500" />
+    <Property Name="UNIT_PRICE" Type="float" Precision="126" Scale="0" />
+    <Property Name="TOTAL_PRICE" Type="float" Precision="126" Scale="0" />
+    <Property Name="RFI_INFO" Type="varchar2" MaxLength="4000" />
+  </EntityType>
+  <EntityType Name="SOURCING_RFQ_QUOTATION">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="VENDOR_ID" Type="number" Precision="38" Scale="0" />
+    <Property Name="ITEM_NO" Type="number" Precision="38" Scale="0" />
+    <Property Name="UNIT_PRICE" Type="float" Precision="126" Scale="0" />
+    <Property Name="TOTAL_PRICE" Type="float" Precision="126" Scale="0" />
+  </EntityType>
+  <EntityType Name="SOURCING_RFQ_REQ">
+    <Key>
+      <PropertyRef Name="TEMP_NO" />
+    </Key>
+    <Property Name="TEMP_NO" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="RFQ_START_DATE" Type="date" />
+    <Property Name="RFQ_CLOSE_DATE" Type="date" />
+    <Property Name="INITIATOR_ID" Type="number" Precision="38" Scale="0" />
+    <Property Name="INITIATOR_NAME" Type="varchar2" MaxLength="200" />
+    <Property Name="DELIVERY_ADDRESS" Type="varchar2" MaxLength="500" />
+    <Property Name="STATUS" Type="varchar2" MaxLength="150" />
+    <Property Name="NEGTOTALAMT" Type="number" Precision="38" Scale="0" />
+    <Property Name="NEGVAT" Type="number" Precision="38" Scale="0" />
+    <Property Name="NEGVATVALUE" Type="number" Precision="38" Scale="0" />
+    <Property Name="NEGGRANDTOTAL" Type="number" Precision="38" Scale="0" />
+    <Property Name="EXECTOTALAMT" Type="number" Precision="38" Scale="0" />
+    <Property Name="EXECVAT" Type="number" Precision="38" Scale="0" />
+    <Property Name="EXECVATVALUE" Type="number" Precision="38" Scale="0" />
+    <Property Name="EXECGRANDTOTAL" Type="number" Precision="38" Scale="0" />
+    <Property Name="MAPPING" Type="number" Precision="38" Scale="0" />
+  </EntityType>
+  <EntityType Name="SOURCING_ROLES">
+    <Key>
+      <PropertyRef Name="ROLE_ID" />
+    </Key>
+    <Property Name="ROLE_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="ROLE_NAME" Type="varchar2" MaxLength="50" />
+    <Property Name="STATUS" Type="varchar2" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="SOURCING_USERS">
+    <Key>
+      <PropertyRef Name="USER_ID" />
+    </Key>
+    <Property Name="USER_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="USERNAME" Type="varchar2" MaxLength="50" />
+    <Property Name="EMAIL" Type="varchar2" MaxLength="150" />
+    <Property Name="EMP_NUM" Type="varchar2" MaxLength="15" />
+    <Property Name="NAME" Type="varchar2" MaxLength="200" />
+    <Property Name="DESIGNATION" Type="varchar2" MaxLength="300" />
+    <Property Name="DEPARTMENT" Type="varchar2" MaxLength="300" />
+    <Property Name="TELEPHONE" Type="varchar2" MaxLength="50" />
+    <Property Name="CATEGORY" Type="varchar2" MaxLength="50" />
+    <Property Name="ROLE" Type="varchar2" MaxLength="100" />
+    <Property Name="STATUS" Type="varchar2" MaxLength="20" />
+    <Property Name="CATEGORY_ID" Type="number" Precision="38" Scale="0" />
+    <Property Name="ROLE_ID" Type="number" Precision="38" Scale="0" />
+  </EntityType>
+  <EntityType Name="SOURCING_VENDOR_LOGIN_DETAILS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="USERNAME" Type="varchar2" MaxLength="50" />
+    <Property Name="PASSWORD" Type="varchar2" MaxLength="150" />
+    <Property Name="LASTLOGIN" Type="date" />
+    <Property Name="VENDOR_ID" Type="number" Precision="38" Scale="0" />
+  </EntityType>
+  <EntityContainer Name="ModelStoreContainer">
+    <EntitySet Name="SOURCING_CATEGORIES" EntityType="Self.SOURCING_CATEGORIES" Schema="APPS" store:Type="Tables" />
+    <EntitySet Name="SOURCING_CONTACTEDVENDOR" EntityType="Self.SOURCING_CONTACTEDVENDOR" Schema="APPS" store:Type="Tables" />
+    <EntitySet Name="SOURCING_CONTACTPERSON" EntityType="Self.SOURCING_CONTACTPERSON" Schema="APPS" store:Type="Tables" />
+    <EntitySet Name="SOURCING_MESSAGE" EntityType="Self.SOURCING_MESSAGE" Schema="APPS" store:Type="Tables" />
+    <EntitySet Name="SOURCING_MESSAGE_RECIPIENT" EntityType="Self.SOURCING_MESSAGE_RECIPIENT" Schema="APPS" store:Type="Tables" />
+    <EntitySet Name="SOURCING_NEG_PRICE" EntityType="Self.SOURCING_NEG_PRICE" Schema="APPS" store:Type="Tables" />
+    <EntitySet Name="SOURCING_NEGOTIATIONS" EntityType="Self.SOURCING_NEGOTIATIONS" Schema="APPS" store:Type="Tables" />
+    <EntitySet Name="SOURCING_PROPOSAL" EntityType="Self.SOURCING_PROPOSAL" Schema="APPS" store:Type="Tables" />
+    <EntitySet Name="SOURCING_REF_TEMP_LINK" EntityType="Self.SOURCING_REF_TEMP_LINK" Schema="APPS" store:Type="Tables" />
+    <EntitySet Name="SOURCING_REQUEST" EntityType="Self.SOURCING_REQUEST" Schema="APPS" store:Type="Tables" />
+    <EntitySet Name="SOURCING_REQUEST_FILES" EntityType="Self.SOURCING_REQUEST_FILES" Schema="APPS" store:Type="Tables" />
+    <EntitySet Name="SOURCING_REQUEST_TYPE" EntityType="Self.SOURCING_REQUEST_TYPE" Schema="APPS" store:Type="Tables" />
+    <EntitySet Name="SOURCING_RFP_RFI_REQ" EntityType="Self.SOURCING_RFP_RFI_REQ" Schema="APPS" store:Type="Tables" />
+    <EntitySet Name="SOURCING_RFQ_ITEM" EntityType="Self.SOURCING_RFQ_ITEM" Schema="APPS" store:Type="Tables" />
+    <EntitySet Name="SOURCING_RFQ_QUOTATION" EntityType="Self.SOURCING_RFQ_QUOTATION" Schema="APPS" store:Type="Tables" />
+    <EntitySet Name="SOURCING_RFQ_REQ" EntityType="Self.SOURCING_RFQ_REQ" Schema="APPS" store:Type="Tables" />
+    <EntitySet Name="SOURCING_ROLES" EntityType="Self.SOURCING_ROLES" Schema="APPS" store:Type="Tables" />
+    <EntitySet Name="SOURCING_USERS" EntityType="Self.SOURCING_USERS" Schema="APPS" store:Type="Tables" />
+    <EntitySet Name="SOURCING_VENDOR_LOGIN_DETAILS" EntityType="Self.SOURCING_VENDOR_LOGIN_DETAILS" Schema="APPS" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

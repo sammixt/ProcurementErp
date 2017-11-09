@@ -1,0 +1,6 @@
+﻿SELECT  ppx.full_name, ppx.email_address, ppx.employee_number
+FROM apps.per_people_x@oracle_erp ppx,
+     apps.per_assignments_x@oracle_erp pax,
+     apps.gl_code_combinations_kfv@oracle_erp gcc
+WHERE (ppx.person_id = pax.person_id
+AND pax.default_code_comb_id = gcc.code_combination_id) AND(ppx.current_employee_flag = 'Y' AND ppx.email_address is not null) AND gcc.segment3 LIKE 'D23%' 

@@ -1,0 +1,2 @@
+﻿select distinct vendor_id, vendor_name, vendor_number, email_address, phone_number from xxubn_suppliers_info_v  
+where vendor_type = 'Supplier'

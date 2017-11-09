@@ -1,0 +1,148 @@
+﻿<!-- Content Wrapper. Contains page content -->
+@model ProcurementErp.ViewModels.SourceRequestViewModel
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1>
+            New Sourcing Request
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li class="active">New Request</li>
+        </ol>
+    </section>
+    <!-- Main content -->
+    <section class="content">
+        <div class="row">
+            <div class="col-md-12">
+                    <div class="box box-primary">
+                        <div class="box-header with-border">
+                            <h3 class="box-title">Initiate new sourcing request to procurement</h3>
+                        </div>
+                        <!-- /.box-header -->
+                        <!-- form start -->
+                        <div class="col-md-6 col-md-offset-3">
+            @using (Html.BeginForm("NewRequest", "Home", FormMethod.Post, new { role = "form", enctype = "multipart/form-data", id = "NewRequestForm", @onsubmit = "return ValidateFile(this);" }))
+            {         
+                    @Html.AntiForgeryToken();   
+                    <div class="box-body">
+                        @if (ViewBag.Error != null)
+                        {
+                            <div class="form-group">
+                                <p class="form-control-static text-bold text-danger">@ViewBag.Error</p>
+                            </div>
+                        }
+                        <div class="form-group">
+                            <button type="button" onclick="Clear()" class="btn btn-block btn-primary" data-toggle="modal" data-target="#myModal">Click to Select Category</button>
+                        </div>
+                        <div class="form-group CategorySelectedDiv" style="display:none">
+                            <label for="">Category Selected</label>
+                            @Html.TextAreaFor(model => model.ITEM_CATEGORY, new { @class = "form-control", id = "CategorySelected", @readonly = "readonly",@required = "required" })
+                            @Html.ValidationMessageFor(model => model.ITEM_CATEGORY)
+                            
+                            
+                            @Html.HiddenFor(model => model.ITEM_CATEGORY_ID, new { id = "CategorySelectedID" })
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.ITEM_DESCRIPTION)
+                            @Html.TextAreaFor(model => model.ITEM_DESCRIPTION, new { @class = "form-control",@required = "required", row = "3"})
+                            @Html.ValidationMessageFor(model => model.ITEM_DESCRIPTION)
+                        </div>
+                        <div class="form-group">
+                            <label for="">Select Preferred Vendor</label>
+                            <input onchange="getVendorOnChange('Vendor', 'Vendors')" type="text" list="vendors" class="form-control Vendors" id="Vendor" name="PREFERED_VENDOR" placeholder="">
+                            <datalist id="vendors">
+                                @foreach (var item in ViewBag.Vendors)
+                                {
+                                    <option value="@item.VENDOR_NAME" data-vendor="@item.VENDOR_ID" />
+                                }
+                            </datalist>
+                            @Html.HiddenFor(model => model.PREFERED_VENDOR_ID, new { @class = "Vendor" })
+                           
+                        </div>
+                        <div class="form-group">
+                            <label>Expected Delivery Date:</label>
+                            <div class="input-group date">
+                                <div class="input-group-addon">
+                                    <i class="fa fa-calendar"></i>
+                                </div>
+                                <input name="EXPECTED_DELIVERY_DATE" required type="text" class="datepicker form-control pull-right" data-provide="datepicker">
+                            </div>
+                            <!-- /.input group -->
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.INITIATING_BRANCH)
+                            @Html.EditorFor(model => model.INITIATING_BRANCH, new { htmlAttributes = new { @readonly = "readonly", @class = "form-control pull-right" } })
+                            @Html.HiddenFor(model => model.INITIATING_BRANCHCODE)
+                        </div>
+                        <br /><br />
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.INITIATING_DEPT)
+                            @Html.EditorFor(model => model.INITIATING_DEPT, new { htmlAttributes = new { @readonly = "readonly",  @class = "form-control pull-right" } })
+                            @Html.HiddenFor(model => model.INITIATING_DEPTCODE);
+                        </div>
+                        <br /><br />
+                        <div class="form-group">
+                            <br />
+                            @Html.LabelFor(model => model.Files)
+                            <label for="exampleInputFile">File input</label>
+                            @Html.TextBoxFor(model => model.Files,  new { type = "file", @multiple = "multiple",accept = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel,application/pdf"  })<br/>
+                            <p class="help-block">Attach supporting document, PDF and Excel only.</p>
+                        </div>
+                    </div>
+                    <!-- /.box-body -->
+
+                    <div class="box-footer">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+            }                   
+        </div>
+        <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<!-- Modal Section -->
+
+    <div class="modal fade modal-info" id="myModal" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title">Select Categories</h4>
+                </div>
+                <div class="modal-body">
+                    <p class="form-control-static" id="CategoryHolder"></p>
+                    <select id="Category" onchange="getSelectedValue('Category')" class="form-control">
+                        <option></option>
+                        @foreach (var item in ViewBag.ItemCategories)
+                        {
+                            <option value="@item.CATEGORY_NUM">@item.CATEGORY_NAME</option>
+                        }
+                    </select>
+                </div>
+                <div class="modal-footer">
+                    <button onclick="Clear()" type="button" class="btn btn-outline pull-left">Clear</button>
+                    <button onclick="SaveCategory()" type="button" class="btn btn-outline" data-dismiss="modal">Save changes</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+@section scripts {
+<script src="~/JsFiles/CategorySelector.js"></script>
+<script src="~/JsFiles/ValidateFileUpload.js"></script>
+<script type="text/javascript">
+
+    $('input.datepicker[type="text"]').keypress(function (e) {
+        e.preventDefault();
+    });
+    </script>
+
+}

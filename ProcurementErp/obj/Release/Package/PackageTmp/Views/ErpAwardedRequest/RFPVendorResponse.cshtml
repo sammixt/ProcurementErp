@@ -1,0 +1,588 @@
+﻿@model ProcurementErp.ViewModels.RFIRFPComboViewModel
+@using ProcurementErp.BLL
+@{
+    ViewBag.Title = "RFPVendorResponse";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header" id="RequestHistoryContainer">
+        <h1>
+            Request For Proposal
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="@Url.Action("Index","Home")"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li class="#">Vendor Response</li>
+            <li class="active">RFP</li>
+        </ol>
+    </section>
+    <section class="content" id="Roles">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="box box-primary">
+                    <div class="box-header with-border">
+                        <p class="text-bold" style="text-transform:uppercase">
+                            @Model.Vendor.VENDOR_NAME
+                        </p>
+                        <div class="box-tools pull-right">
+                            <span class="text-bold text-info Timer"></span>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <!--Req form II -->
+                    <div class="box-body">
+                        <div class="col-md-11 col-md-offset-1">
+
+                            <div class="form-group col-md-12">
+                                <div class="box-body">
+                                    @if (ViewBag.ErrorMessage != null)
+                                    {
+                                        <p class="text-danger">@ViewBag.ErrorMessage</p>
+                                    }
+                                    <table class="table table-bordered table-striped">
+                                        <tr>
+                                            <td colspan="2"><p class="text-center text-uppercase text-bold">request for proposal (rfp)</p></td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <table style="width:100%">
+                                                    <tr>
+                                                        <th>Project Title</th>
+                                                        <td>@Model.Request.PRJECT_TITLE</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>Issue Date</th>
+                                                        <td>@(Model.Request.INITIATION_DATE != null ? Model.Request.INITIATION_DATE.Value.ToShortDateString() : "")</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>Status</th>
+                                                        <td class="text-info text-bold">@Model.Vendor.STATUS</td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                            <td>
+                                                <table style="width:100%">
+                                                    <tr>
+                                                        <th>Due Date</th>
+                                                        <td>
+                                                            @(Model.Request.DUE_DATE != null ? Model.Request.DUE_DATE.Value.ToShortDateString() : "")
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>Due Time</th>
+                                                        <td>
+                                                            @Model.Request.DUE_TIME
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>Reference Number</th>
+                                                        <td>
+                                                            @Model.RefNum.REF_NO
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2">
+                                                <table class="table table-bordered table-striped">
+                                                    <tr>
+                                                        <th class="text-uppercase text-info">Introduction</th>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <label class="control-label">Brief overview of UBN</label>
+                                                            <p class="form-control-static">@Model.Request.UBN_OVERVIEW</p>
+                                                        </td>
+                                                    </tr>
+
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2">
+                                                <table class="table table-bordered table-striped">
+                                                    <tr>
+                                                        <th class="text-uppercase text-info">Project Overview</th>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <label class="control-label">Project Objectives</label>
+                                                            <p class="form-control-static">@Model.Request.PROJECT_OBJECTIVE</p>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <label class="control-label">Scope of Work</label>
+                                                            <p class="form-control-static">@Model.Request.WORK_SCOPE</p>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <table class="table table-bordered table-striped">
+                                                    <tr>
+                                                        <th colspan="2" class="text-uppercase text-info">TECHNICAL CONTACT PERSON</th>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>NAME</td>
+                                                        <td>
+                                                            @Model.Technical.NAME
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>DESIGNATION</td>
+                                                        <td>
+                                                            @Model.Technical.DESIGNATION
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>DEPARTMENT</td>
+                                                        <td>
+                                                            @Model.Technical.DEPARTMENT
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>TELEPHONE</td>
+                                                        <td>
+                                                            @Model.Technical.TELEPHONE
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>EMAIL</td>
+                                                        <td>
+                                                            @Model.Technical.EMAIL
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                            <td>
+                                                <table class="table table-bordered table-striped">
+                                                    <tr>
+                                                        <th colspan="2" class="text-uppercase text-info">COMMERCIAL CONTACT PERSON</th>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>NAME</td>
+                                                        <td>
+                                                            @Model.Commercial.NAME
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>DESIGNATION</td>
+                                                        <td>
+                                                            @Model.Commercial.DESIGNATION
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>DEPARTMENT</td>
+                                                        <td>
+                                                            @Model.Commercial.DEPARTMENT
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>TELEPHONE</td>
+                                                        <td>
+                                                            @Model.Commercial.TELEPHONE
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>EMAIL</td>
+                                                        <td>
+                                                            @Model.Commercial.EMAIL
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2">
+                                                <table class="table table-bordered table-striped">
+                                                    <tr>
+                                                        <th colspan="2" class="text-uppercase text-info">rfp timelines</th>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Date of Issue</td>
+                                                        <td>
+                                                            @(Model.Request.ISSUE_DATE != null ? Model.Request.ISSUE_DATE.Value.ToShortDateString() : "")
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Last Date for receipt of Queries</td>
+                                                        <td>
+                                                            @(Model.Request.LST_QRY_RECEIPT_DATE != null ? Model.Request.LST_QRY_RECEIPT_DATE.Value.ToShortDateString() : "")
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Last date for bank's response to Queries</td>
+                                                        <td>
+                                                            @(Model.Request.LST_RPF_RECPT_DATE != null ? Model.Request.LST_RPF_RECPT_DATE.Value.ToShortDateString() : "")
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Date of receipt of response to RFP</td>
+                                                        <td>
+                                                            @(Model.Request.BANK_QRY_RES_DATE != null ? Model.Request.BANK_QRY_RES_DATE.Value.ToShortDateString() : "")
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+
+                                    </table>
+
+                                </div>
+
+                                <div class="box-body">
+
+                                    <table class="table table-bordered table-striped">
+                                        @if (Model._Negotiations != null)
+                                        {
+                                            foreach (var quote in Model._Negotiations)
+                                            {
+                                                <tr>
+                                                    <th colspan="6" class="text-uppercase text-bold">
+                                                        @if (quote.NEGOTIATOR == "VENDOR")
+                                                        {
+                                                            <span class="text-danger">commercial proposal</span>
+                                                        }
+                                                        else
+                                                        {
+                                                            <span class="text-info">union bank's offer</span>
+                                                        }
+
+                                                    </th>
+                                                </tr>
+                                                <tr>
+                                                    <th>Item No.</th>
+                                                    <th>Quantity</th>
+                                                    <th>Unit of Measurement</th>
+                                                    <th>Goods & Services Description</th>
+                                                    <th>Unit Price</th>
+                                                    <th>Total Price</th>
+                                                </tr>
+                                                if (quote.NegItems != null)
+                                                {
+                                                    var items = quote.NegItems.Where(m => m.NegNum == quote.NEG_NO).ToList();
+                                                    int count = 1;
+                                                    foreach (var item in items)
+                                                    {
+                                                        <tr>
+                                                            <td>@count</td>
+                                                            <td>@item.QUANTITY</td>
+                                                            <td>@item.UNIT_OF_MEAS</td>
+                                                            <td>@item.DESCRIPTION</td>
+                                                            <td>@Html.FormatNumber(item.UNIT_PRICE)</td>
+                                                            <td>
+                                                                <p class="form-control-static"><span class="totalPrice">@Html.FormatNumber(item.TOTAL_PRICE)</span></p>
+                                                            </td>
+                                                        </tr>
+                                                        count++;
+                                                    }
+                                                }
+                                                <tr>
+                                                    <td colspan="3">&nbsp;</td>
+                                                    <td colspan="2">
+                                                        <table class="table table-bordered">
+                                                            <tr>
+                                                                <th>Total Amount before Tax</th>
+
+                                                            </tr>
+                                                            <tr>
+                                                                <td>
+                                                                    <span class="text-bold">VAT (@quote.VAT%)</span>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th>Grand Total including VAT</th>
+
+                                                            </tr>
+                                                        </table>
+                                                    </td>
+                                                    <td>
+                                                        <table class="table table-bordered">
+                                                            <tr>
+                                                                <td>@Html.FormatNumber(quote.TOTAL_AMT)</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>@Html.FormatNumber(quote.VATVALUE)</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>@Html.FormatNumber(quote.GRANDTOTAL)</td>
+                                                            </tr>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="2" class="text-bold">Response Date</td>
+                                                    <td colspan="4" class="text-bold">@quote.RES_DATE</td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="2" class="text-bold">Acknowledgement</td>
+                                                    <td colspan="4">
+                                                        @if (quote.STATUS != "NEGOTIATING")
+                                                        {
+                                                            <span class="text-bold text-blue text-uppercase">@quote.STATUS</span>
+                                                        }
+                                                        else
+                                                        {
+                                                            @quote.STATUS
+                                                        }
+                                                    </td>
+
+                                                </tr>
+                                            }
+
+                                        }
+
+                                        @if (Model._Files.Count() > 0)
+                                        {
+                                            <tr>
+                                                <td colspan="6">
+                                                    <table class="table table-bordered table-striped">
+                                                        <thead>
+                                                            <tr>
+                                                                <th colspan="3">Supporting Documents</th>
+                                                            </tr>
+                                                            <tr>
+                                                                <th>File Name</th>
+                                                                <th>File Type</th>
+                                                                <th>&nbsp;</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            @foreach (var item in Model._Files)
+                                                            {
+                                                                <tr>
+                                                                    <td>@item.FILENAME</td>
+                                                                    <td>@item.FILETYPE</td>
+                                                                    <td><a href="@Url.Action("DownloadFile", "VendorResponse", new { FIleId = item.FIILE_ID })" class="btn btn-sm btn-success">Download</a></td>
+                                                                </tr>
+                                                            }
+                                                        </tbody>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                        }
+                                    </table>
+                                </div>
+                                <div class="box-body">
+                                    <table class="table table-bordered table-striped">
+                                        <tr>
+                                            <td class="text-uppercase text-bold">
+                                                technical proposal
+                                            </td>
+                                        <tr>
+                                        <tr>
+                                            <td>
+                                                @Html.Raw(@Model.proposal.PROPOSAL)
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                @if ( Model.Vendor.STATUS == "PROCESSING")
+                                {
+                                    <div class="box-body">
+                                        <div class="col-md-10 col-md-offset-2">
+                                            <form id="form1" class="col-md-10 col-md-offset-1">
+                                                <div class="form-group col-md-9">
+                                                    <label class="control-label">Select Action</label>
+                                                    <select name="Action" id="Action" class="form-control">
+                                                        <option value="5">Move To ERP</option>
+                                                    </select>
+                                                </div>
+                                                <div class="form-group col-md-3">
+                                                    <br />
+                                                    <input id="SUBMIT" type="submit" class="btn btn-sm btn-success" value="Submit" />
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                            <!-- /.box-body -->
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Enter Negotiated Value</h4>
+            </div>
+            <div class="modal-body">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<style type="text/css">
+    .modal-dialog {
+        width: 85%; /* New width for default modal */
+        height: 500px;
+    }
+
+    .modal-body {
+        max-height: 800px;
+    }
+
+    .modal-sm {
+        width: 350px; /* New width for small modal */
+    }
+</style>
+
+@section scripts{
+    <script type="text/javascript">
+    $(function () {
+        $('#form1').on('submit', function (e) {
+            var $action = $('#Action').val();
+            if ($action == 5) {
+                var $route = "@Html.GetPathForAjaxCall()/ProcurementResolve/AwardContract?TempId=@Model.Request.TEMP_ID&VendorId=@Model.Vendor.VENDOR_ID";
+                $.get($route, function (data) {
+                    if (data == true) {
+                        window.location.reload();
+                    } else {
+                        alert("An Error Occurred")
+                    }
+                }).success(function () {
+                    window.location.reload();
+                })
+            } else if ($action == 7) {
+                var $route = "@Html.GetPathForAjaxCall()/ProcurementResolve/AuthorityToProceed?TempId=@Model.Request.TEMP_ID&VendorId=@Model.Vendor.VENDOR_ID";
+                window.location.href = $route;
+            } else if ($action == 6) {
+                var $route = "@Html.GetPathForAjaxCall()/ProcurementResolve/RegLetter?TempId=@Model.Request.TEMP_ID&VendorId=@Model.Vendor.VENDOR_ID";
+                window.location.href = $route;
+            }
+            e.preventDefault();
+        })
+    })
+
+    function onSelectQuoteAction(id) {
+        var $negActionSelected = $('#NegAction_' + id).val();
+        var $negNumber = $('#NegNo_' + id).val();
+        if ($negActionSelected == "NEGOTIATED") {
+            var $route = "@Html.GetPathForAjaxCall()/Negotiate/NegotiatePerVendor?TempNo=@Model.Request.TEMP_ID&VendorId=@Model.Vendor.VENDOR_ID&NegNum=" + $negNumber;
+            $.get($route, function (data) {
+                $('.modal-body').html(data);
+            }).success(function () {
+                $('#myModal').modal('toggle');
+            })
+        } else {
+            $('#SubmitNegAction').text('Processing...');
+            $('#SubmitNegAction').removeClass('btn-primary');
+            $('#SubmitNegAction').addClass('btn-danger');
+
+            var $route = "@Html.GetPathForAjaxCall()/Negotiate/UpdateNegStatus?TempNo=@Model.Request.TEMP_ID&NegNum=" + $negNumber + "&Status=" + $negActionSelected;
+            $.get($route, function (data) {
+                if (data == true) {
+                    window.location.reload();
+                } else {
+                    alert("An Error Occurred")
+                }
+            }).success(function () {
+                window.location.reload();
+            })
+            //alert($negActionSelected);
+            //alert($negNumber);
+        }
+
+    }
+</script>
+
+    @if (ViewBag.SuccessMessage != null)
+    {
+        <script>
+        $(function () {
+            swal("@ViewBag.SuccessMessage");
+        })
+        </script>
+    }
+
+    <script>
+
+    //$(function () {
+    //    //var start = new Date;
+    //    //var date1 = new Date("DateTime.Now.ToShortDateString()");
+    //    //var date2 = new Date("Model.Request.DUE_DATE.Value.ToShortDateString()");
+    //    //var timeDiff = Math.abs(date2.getTime() - date1.getTime());
+    //    //var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
+    //    //$('.Timer').text(diffDays + " Days Left");
+
+    //})
+
+    function CalculateTotal(id) {
+        //alert(id);
+        var $total = $('.total').length;
+        var qty = $('#Qty_' + id).text()
+        var _qty = parseFloat(qty);
+        var price = $('#Price_' + id).val();
+        var _price = parseFloat(price);
+        var _totalPrice = _qty * _price;
+        $('#currency_' + id).text('NGN');
+        $('#totalPrice_' + id).text(_totalPrice);
+        $('#totalPriceField_' + id).val(_totalPrice)
+        var $sum = 0;
+        for (var i = 1; i < $total + 1; i++) {
+            if (isNaN(parseFloat($('#totalPrice_' + i).text()))) {
+                $sum += 0;
+            } else {
+                $sum += parseFloat($('#totalPrice_' + i).text());
+            }
+            //$sum += isNaN(parseFloat($('#totalPrice_' + i).text())) ? 0 : parseFloat($('#totalPrice_' + i).text());
+            //alert($('#totalPrice_' + i).text());
+            //alert(parseFloat($sum));
+        }
+
+        $('#TotalBFTax').text(parseFloat($sum));
+        $('#TotalBFTaxField').val(parseFloat($sum));
+        $('#TotalBFTaxCur').text('NGN');
+        getVat();
+        //alert("Quantity : "+_qty);
+        //alert("Price : "+_price);
+        //alert("Total : "+_totalPrice)
+        //alert("Total string : "+totalPrice)
+    }
+
+    function getVat() {
+        var $vat = $('#VAT').val();
+        //alert($vat);
+        if (isNaN(parseInt($vat))) { _vat = 0; } else { _vat = parseFloat($vat) }
+
+        var $total = $('#TotalBFTax').text();
+        var _total = parseFloat($total);
+        var percent = _vat / 100;
+        var grandTotal = _total * percent;
+        $('#TotalVat').text(parseFloat(grandTotal));
+        $('#TotalVatField').val(parseFloat(grandTotal));
+        $('#TotalVatCur').text('NGN');
+        //get grand total amount
+        var $totalAmt = $('#TotalBFTax').text()
+        _totalAmt = parseFloat($totalAmt);
+        var $totalVat = $('#TotalVat').text();
+        _totalVat = parseFloat($totalVat)
+        var grandTotal = (_totalAmt + _totalVat);
+        $('#GrandTotal').text(grandTotal);
+        $('#GrandTotalField').val(grandTotal);
+        $('#GrandTotalCur').text('NGN');
+
+    }
+    </script>
+
+}

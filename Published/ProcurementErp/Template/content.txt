@@ -1,0 +1,1 @@
+﻿We are please to inform you that your company {CompanyName} has been selected to provide us with a feedback on the the request ({RequestType}). Do logon to our portal with the credential provided to view details. Username : {username}, Password : {password}.

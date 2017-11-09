@@ -1,0 +1,322 @@
+﻿@model ProcurementErp.ViewModels.RFIRFPComboViewModel
+@{
+    ViewBag.Title = "RFIIndex";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header" id="RequestHistoryContainer">
+        <h1>
+            New Request For Proposal 
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li class="">New Request</li>
+            <li class="active">RFP</li>
+        </ol>
+    </section>
+    <section class="content" id="Roles">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="box box-primary">
+                    <div class="box-header with-border">
+                        <p class="text-bold" style="text-transform:uppercase">
+                            New RFP REQUEST
+                        </p>
+                    </div>
+                    <!--Req form II -->
+                    <div class="box-body">
+                        <div class="col-md-11 col-md-offset-1">
+                            <div class="form-group col-md-12">
+                                @using(Html.BeginForm("RFPIndex", "Request", FormMethod.Post, new { role = "form", @class="box-body"})){
+                                    <table class="table table-bordered table-striped">
+                                        <tr>
+                                            <td colspan="2"><p class="text-center text-uppercase text-bold">request for proposal (rfp)</p></td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <table style="width:100%">
+                                                    <tr>
+                                                        <th>Project Title</th>
+                                                        <td>
+                                                        @Html.TextBoxFor(m => m.Request.PRJECT_TITLE, new { @class = "form-control" })
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>Issue Date</th>
+                                                        <td>
+                                                            @Html.TextBoxFor(m => m.Request.INITIATION_DATE, new { @class = "form-control datepicker",@required = "required" })
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                            <td>
+                                                <table style="width:100%">
+                                                    <tr>
+                                                        <th>Due Date</th>
+                                                        <td>
+                                                        
+                                                            @Html.TextBoxFor(m => m.Request.DUE_DATE, new { @class = "form-control datepicker", @required = "required" })
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>Due Time</th>
+                                                        <td>
+                                                            <div class="bootstrap-timepicker">
+                                                                <div class="form-group">
+                                                                    <div class="input-group">
+                                                                        @Html.TextBoxFor(m => m.Request.DUE_TIME, new { @class = "form-control timepicker", @readonly = "readonly" } )
+                                                                        
+                                                                        <div class="input-group-addon">
+                                                                            <i class="fa fa-clock-o"></i>
+                                                                        </div>
+                                                                    </div>
+                                                                    <!-- /.input group -->
+                                                                </div>
+                                                                <!-- /.form group -->
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2">
+                                                <table class="table table-bordered table-striped">
+                                                    <tr>
+                                                        <th class="text-uppercase text-info">Introduction</th>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <label class="control-label">Brief overview of UBN</label>
+                                                            @Html.TextAreaFor(m => m.Request.UBN_OVERVIEW, new { @class = "form-control", rows = "3"})
+                                                           
+                                                        </td>
+                                                    </tr>
+                                                   
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2">
+                                                <table class="table table-bordered table-striped">
+                                                    <tr>
+                                                        <th class="text-uppercase text-info">Project Overview</th>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <label class="control-label">Project Objectives</label>
+                                                            @Html.TextAreaFor(m => m.Request.PROJECT_OBJECTIVE, new { @class = "form-control", rows = "3" })
+                                                            
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <label class="control-label">Scope of Work</label>
+                                                            @Html.TextAreaFor(m => m.Request.WORK_SCOPE, new { @class = "form-control", rows = "3" })
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <table class="table table-bordered table-striped">
+                                                    <tr>
+                                                        <th colspan="2" class="text-uppercase text-info">TECHNICAL CONTACT PERSON</th>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>NAME</td>
+                                                        <td>
+                                                            @Html.TextBoxFor(m => m.Technical.NAME, new { @class = "form-control" })
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>DESIGNATION</td>
+                                                        <td>
+                                                           @Html.TextBoxFor(m => m.Technical.DESIGNATION, new { @class = "form-control" })
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>DEPARTMENT</td>
+                                                        <td>
+                                                            @Html.TextBoxFor(m => m.Technical.DEPARTMENT, new { @class = "form-control" })
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>TELEPHONE</td>
+                                                        <td>
+                                                            @Html.TextBoxFor(m => m.Technical.TELEPHONE, new { @class = "form-control",type = "number" })
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>EMAIL</td>
+                                                        <td>
+                                                            @Html.TextBoxFor(m => m.Technical.EMAIL, new { @class = "form-control", type = "email" })
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                            <td>
+                                                <table class="table table-bordered table-striped">
+                                                    <tr>
+                                                        <th colspan="2" class="text-uppercase text-info">COMMERCIAL CONTACT PERSON</th>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>NAME</td>
+                                                        <td>
+                                                            @Html.TextBoxFor(m => m.Commercial.NAME, new { @class = "form-control" })
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>DESIGNATION</td>
+                                                        <td>
+                                                            @Html.TextBoxFor(m => m.Commercial.DESIGNATION, new { @class = "form-control" })
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>DEPARTMENT</td>
+                                                        <td>
+                                                            @Html.TextBoxFor(m => m.Commercial.DEPARTMENT, new { @class = "form-control" })
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>TELEPHONE</td>
+                                                        <td>
+                                                           @Html.TextBoxFor(m => m.Commercial.TELEPHONE, new { @class = "form-control",type = "number" })
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>EMAIL</td>
+                                                        <td>
+                                                            @Html.TextBoxFor(m => m.Commercial.EMAIL, new { @class = "form-control", type = "email" })
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2">
+                                                <table class="table table-bordered table-striped">
+                                                    <tr>
+                                                        <th colspan="2" class="text-uppercase text-info">rfp timelines</th>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Date of Issue</td>
+                                                        <td>
+                                                        
+                                                            @Html.TextBoxFor(m => m.Request.ISSUE_DATE, new {  @class = "form-control datepicker", @required = "required" })
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Last Date for receipt of Queries</td>
+                                                        <td>@Html.TextBoxFor(m => m.Request.LST_QRY_RECEIPT_DATE, new { @class = "form-control datepicker", @required = "required" })</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Last date for bank's response to Queries</td>
+                                                        <td>@Html.TextBoxFor(m => m.Request.BANK_QRY_RES_DATE, new { @class = "form-control datepicker", @required = "required" })</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Date of receipt of response to RFP</td>
+                                                        <td>@Html.TextBoxFor(m => m.Request.LST_RPF_RECPT_DATE, new { @class = "form-control datepicker", @required = "required" })
+                                                        @Html.HiddenFor(m => m.Request.MAPPING, new { @id = "MAPPING" })
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text text-success text-bold" id="MapperMsg">&nbsp;</td>
+                                        </tr>
+                                    </table>
+                                    <div class="clearfix"></div>
+                                    <div id="MapDiv" style="margin-top:2%" class="form-group col-md-12 col-md-offset-5">
+                                        <a href="@Url.Action("MappTreatedSourceReq", "Admin")" data-toggle="modal" data-target="#myModal" class="btn btn-success">Map Request</a>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                    <div id="SubmitDiv" class="form-group col-md-12 col-md-offset-5" style="display:none">
+                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                    </div>
+
+                                }
+                                
+                            </div>
+                            <!-- /.box-body -->
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+@section scripts{
+   <script type="text/javascript">
+       $(function () {
+           //Timepicker
+           $(".timepicker").timepicker({
+               showInputs: false,
+               minuteStep: 5
+           });
+
+           $('.datepicker').datepicker();
+
+           $('input.datepicker[type="text"]').keypress(function (e) {
+               e.preventDefault();
+           });
+
+           $('input.timepicker[type="text"]').keypress(function (e) {
+               e.preventDefault();
+           });
+       })
+
+       function mapRequest(id) {
+           var $value = id;
+           $('#MAPPING').val($value);
+           $('#SubmitDiv').css('display', 'block');
+           $('#MapDiv').css('display', 'none');
+           $('.modal').modal('hide');
+           $('#MapperMsg').text("Item Mapped click on Submit Button to Proceed")
+
+       }
+    </script>
+}
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Enter Negotiated Value</h4>
+            </div>
+            <div class="modal-body">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<style type="text/css">
+    .modal-dialog {
+        width: 80%; /* New width for default modal */
+        height: 900px;
+    }
+
+    .modal-body {
+        max-height: 500px;
+    }
+
+    .modal-sm {
+        width: 350px; /* New width for small modal */
+    }
+</style>
+
+

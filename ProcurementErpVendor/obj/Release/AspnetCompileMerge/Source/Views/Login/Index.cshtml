@@ -1,0 +1,113 @@
+﻿@model ProcurementErpVendor.Models.LoginViewModel
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Procurement ERP</title>
+
+    <!-- Bootstrap -->
+    <link href="~/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Font Awesome -->
+    <link href="~/plugins/vendor/font-awesome.min.css" rel="stylesheet" />
+    <!-- NProgress -->
+    <link href="~/plugins/vendor/nprogress.css" rel="stylesheet" />
+   
+    <!-- Animate.css -->
+    <link href="~/plugins/vendor/animate.min.css" rel="stylesheet" />
+
+    <!-- Custom Theme Style -->
+
+    <link href="~/plugins/vendor/custom.min.css" rel="stylesheet" />
+</head>
+
+<body class="login img-responsive" style="background:url('../../dist/img/sectionbg.jpg') no-repeat fixed center ;background-size:cover;overflow-x:hidden">  
+    <div class="container" style="background:#00adef">
+        <div class="row" style="padding:1%">
+            <div class="col-md-6 text-left logo-top">
+                <a href="#">
+                    <img id="logo" src="~/dist/img/logo-main2.png" />
+                   <!-- <img id="logo" src="~/Content/Validate/img/logo-main.png" />-->
+                </a>
+            </div>
+            @*<div class="col-md-6 text-right login-tour">
+                    <a class="btn btn-login" href="#">UnionOne - LOGIN</a>
+                    <a class="btn btn-tour" href="#">VIDEO TOUR</a>
+                </div>*@
+        </div>
+    </div>
+   
+    <div>
+        <a class="hiddenanchor" id="signup"></a>
+        <a class="hiddenanchor" id="signin"></a>
+
+        <div class="login_wrapper">
+            <div class="animate form login_form">
+                <section class="login_content" style="padding-top:20%">
+                    @using (Html.BeginForm("Index", "Login", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { id = "loginForm", role = "form" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        <h1>LOGIN</h1>
+                        <div>
+                            @Html.TextBoxFor(m => m.UserName, new { @class = "form-control", placeholder = "Username", required = "required" })
+                            @Html.ValidationMessageFor(m => m.UserName)
+                        </div>
+                        <div>
+                            @Html.PasswordFor(m => m.Password, new { @class = "form-control", @placeholder = "Enter your password." })
+                            @Html.ValidationMessageFor(m => m.Password)
+                            
+                           
+                        </div>
+                        <div class="">
+                            <div class="col-md-4 col-md-offset-3">
+                                <input type="submit" class="btn btn-primary btn-block" value="Sign In" onclick="Disable(this)" />
+                            </div>    
+                        </div>
+                        
+                        <div class="clearfix"></div>
+
+                        <div class="separator">
+                            <div style="color:#808080">
+                                <h1>Procurement Application</h1>
+                                <p>@DateTime.Now.Year All Rights Reserved. Union Bank of Nigeria</p>
+                            </div>
+                        </div>
+                    }
+                    @if (ViewBag.ErrorMessage != null)
+                    {
+                        <div class="alert alert-danger">
+                            <p><b>Login failed!</b> @ViewBag.ErrorMessage</p>
+                        </div>
+                    }
+                </section>
+            </div>
+        </div>
+    </div>
+    <script src="~/plugins/jQuery/jquery-2.2.3.min.js"></script>
+    <!-- Bootstrap 3.3.6 -->
+    <script src="~/bootstrap/js/bootstrap.min.js"></script>
+    <!-- iCheck -->
+    <script src="~/plugins/iCheck/icheck.min.js"></script>
+    <script>
+    function Disable(btn) {
+        var $form = $("#loginForm");
+
+        if ($form.valid()) {
+            setTimeout(function () {
+                $(btn).attr('disabled', 'disabled');
+                $(btn).val("Please wait...");
+            }, 100);
+        }
+    }
+    </script>
+
+</body>
+</html>
+

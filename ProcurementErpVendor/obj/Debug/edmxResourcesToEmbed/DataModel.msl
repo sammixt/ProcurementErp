@@ -1,0 +1,307 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="Entities">
+    <EntitySetMapping Name="SOURCING_CATEGORIES">
+      <EntityTypeMapping TypeName="Model.SOURCING_CATEGORIES">
+        <MappingFragment StoreEntitySet="SOURCING_CATEGORIES">
+          <ScalarProperty Name="CATEGORY_NUM" ColumnName="CATEGORY_NUM" />
+          <ScalarProperty Name="CATEGORY_NAME" ColumnName="CATEGORY_NAME" />
+          <ScalarProperty Name="CATEGORY_PARENT" ColumnName="CATEGORY_PARENT" />
+          <ScalarProperty Name="CATEGORY_STATE" ColumnName="CATEGORY_STATE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SOURCING_CONTACTEDVENDOR">
+      <EntityTypeMapping TypeName="Model.SOURCING_CONTACTEDVENDOR">
+        <MappingFragment StoreEntitySet="SOURCING_CONTACTEDVENDOR">
+          <ScalarProperty Name="VERDICT_ACCEPT_DATE" ColumnName="VERDICT_ACCEPT_DATE" />
+          <ScalarProperty Name="VERDICT_ISSUE_DATE" ColumnName="VERDICT_ISSUE_DATE" />
+          <ScalarProperty Name="NEG_STATUS" ColumnName="NEG_STATUS" />
+          <ScalarProperty Name="GRANDTOTAL_PROPOSAL" ColumnName="GRANDTOTAL_PROPOSAL" />
+          <ScalarProperty Name="VAT_PROPOSAL" ColumnName="VAT_PROPOSAL" />
+          <ScalarProperty Name="TOTALBFTAX_PROPOSAL" ColumnName="TOTALBFTAX_PROPOSAL" />
+          <ScalarProperty Name="EXECVAT" ColumnName="EXECVAT" />
+          <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+          <ScalarProperty Name="CONTACT_NAME" ColumnName="CONTACT_NAME" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="VENDOR_ID" ColumnName="VENDOR_ID" />
+          <ScalarProperty Name="TEMP_NO" ColumnName="TEMP_NO" />
+          <ScalarProperty Name="VENDOR_NAME" ColumnName="VENDOR_NAME" />
+          <ScalarProperty Name="RESPONSE_DATE" ColumnName="RESPONSE_DATE" />
+          <ScalarProperty Name="AUTO_EMAIL" ColumnName="AUTO_EMAIL" />
+          <ScalarProperty Name="ADDRESS" ColumnName="ADDRESS" />
+          <ScalarProperty Name="TELEPHONE" ColumnName="TELEPHONE" />
+          <ScalarProperty Name="EXPECTED_DELIVERY_DATE" ColumnName="EXPECTED_DELIVERY_DATE" />
+          <ScalarProperty Name="PAYMENT_TERMS" ColumnName="PAYMENT_TERMS" />
+          <ScalarProperty Name="SUPPLIERS_QUOTE" ColumnName="SUPPLIERS_QUOTE" />
+          <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+          <ScalarProperty Name="VAT" ColumnName="VAT" />
+          <ScalarProperty Name="TOTALBFTAX" ColumnName="TOTALBFTAX" />
+          <ScalarProperty Name="GRANDTOTAL" ColumnName="GRANDTOTAL" />
+          <ScalarProperty Name="EXECTOTAL" ColumnName="EXECTOTAL" />
+          <ScalarProperty Name="EXECGRANDTOTAL" ColumnName="EXECGRANDTOTAL" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SOURCING_CONTACTPERSON">
+      <EntityTypeMapping TypeName="Model.SOURCING_CONTACTPERSON">
+        <MappingFragment StoreEntitySet="SOURCING_CONTACTPERSON">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="TEMP_NO" ColumnName="TEMP_NO" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="DESIGNATION" ColumnName="DESIGNATION" />
+          <ScalarProperty Name="DEPARTMENT" ColumnName="DEPARTMENT" />
+          <ScalarProperty Name="TELEPHONE" ColumnName="TELEPHONE" />
+          <ScalarProperty Name="CONTACT_TYPE" ColumnName="CONTACT_TYPE" />
+          <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SOURCING_REF_TEMP_LINK">
+      <EntityTypeMapping TypeName="Model.SOURCING_REF_TEMP_LINK">
+        <MappingFragment StoreEntitySet="SOURCING_REF_TEMP_LINK">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="TEMP_NO" ColumnName="TEMP_NO" />
+          <ScalarProperty Name="REF_NO" ColumnName="REF_NO" />
+          <ScalarProperty Name="REQ_TYPE" ColumnName="REQ_TYPE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SOURCING_REQUEST">
+      <EntityTypeMapping TypeName="Model.SOURCING_REQUEST">
+        <MappingFragment StoreEntitySet="SOURCING_REQUEST">
+          <ScalarProperty Name="MAPTOREQUEST" ColumnName="MAPTOREQUEST" />
+          <ScalarProperty Name="LINE_MANAGER_COMMENT" ColumnName="LINE_MANAGER_COMMENT" />
+          <ScalarProperty Name="TEMP_ID" ColumnName="TEMP_ID" />
+          <ScalarProperty Name="ITEM_CATEGORY" ColumnName="ITEM_CATEGORY" />
+          <ScalarProperty Name="INITIATOR_NAME" ColumnName="INITIATOR_NAME" />
+          <ScalarProperty Name="INITIATOR_NUMBER" ColumnName="INITIATOR_NUMBER" />
+          <ScalarProperty Name="INITIATING_BRANCH" ColumnName="INITIATING_BRANCH" />
+          <ScalarProperty Name="INITIATING_BRANCHCODE" ColumnName="INITIATING_BRANCHCODE" />
+          <ScalarProperty Name="INITIATING_DEPT" ColumnName="INITIATING_DEPT" />
+          <ScalarProperty Name="INITIATING_DEPTCODE" ColumnName="INITIATING_DEPTCODE" />
+          <ScalarProperty Name="INITIATION_DATE" ColumnName="INITIATION_DATE" />
+          <ScalarProperty Name="LINE_MANAGER_NUM" ColumnName="LINE_MANAGER_NUM" />
+          <ScalarProperty Name="LINE_MANAGER_NAME" ColumnName="LINE_MANAGER_NAME" />
+          <ScalarProperty Name="LINE_MANAGER_APPR" ColumnName="LINE_MANAGER_APPR" />
+          <ScalarProperty Name="LINE_MANAGER_APPR_DATE" ColumnName="LINE_MANAGER_APPR_DATE" />
+          <ScalarProperty Name="BUYER_STATUS" ColumnName="BUYER_STATUS" />
+          <ScalarProperty Name="BUYER_COMMENT" ColumnName="BUYER_COMMENT" />
+          <ScalarProperty Name="PREFERED_VENDOR" ColumnName="PREFERED_VENDOR" />
+          <ScalarProperty Name="PREFERED_VENDOR_ID" ColumnName="PREFERED_VENDOR_ID" />
+          <ScalarProperty Name="ITEM_DESCRIPTION" ColumnName="ITEM_DESCRIPTION" />
+          <ScalarProperty Name="EXPECTED_DELIVERY_DATE" ColumnName="EXPECTED_DELIVERY_DATE" />
+          <ScalarProperty Name="INITIATOR_EMAIL" ColumnName="INITIATOR_EMAIL" />
+          <ScalarProperty Name="LINE_MANAGER_EMAIL" ColumnName="LINE_MANAGER_EMAIL" />
+          <ScalarProperty Name="ITEM_CATEGORY_ID" ColumnName="ITEM_CATEGORY_ID" />
+          <ScalarProperty Name="PROCUREMENT_BUYER" ColumnName="PROCUREMENT_BUYER" />
+          <ScalarProperty Name="PROCUREMENT_BUYER_ID" ColumnName="PROCUREMENT_BUYER_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SOURCING_REQUEST_FILES">
+      <EntityTypeMapping TypeName="Model.SOURCING_REQUEST_FILES">
+        <MappingFragment StoreEntitySet="SOURCING_REQUEST_FILES">
+          <ScalarProperty Name="VENDORID" ColumnName="VENDORID" />
+          <ScalarProperty Name="FIILE_ID" ColumnName="FIILE_ID" />
+          <ScalarProperty Name="SOURCE_REQ_ID" ColumnName="SOURCE_REQ_ID" />
+          <ScalarProperty Name="FILENAME" ColumnName="FILENAME" />
+          <ScalarProperty Name="FILETYPE" ColumnName="FILETYPE" />
+          <ScalarProperty Name="FILE_PATH" ColumnName="FILE_PATH" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SOURCING_REQUEST_TYPE">
+      <EntityTypeMapping TypeName="Model.SOURCING_REQUEST_TYPE">
+        <MappingFragment StoreEntitySet="SOURCING_REQUEST_TYPE">
+          <ScalarProperty Name="REQUEST_ID" ColumnName="REQUEST_ID" />
+          <ScalarProperty Name="REQUEST_NAME" ColumnName="REQUEST_NAME" />
+          <ScalarProperty Name="REQUEST_SHORTCODE" ColumnName="REQUEST_SHORTCODE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SOURCING_RFQ_QUOTATION">
+      <EntityTypeMapping TypeName="Model.SOURCING_RFQ_QUOTATION">
+        <MappingFragment StoreEntitySet="SOURCING_RFQ_QUOTATION">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="VENDOR_ID" ColumnName="VENDOR_ID" />
+          <ScalarProperty Name="ITEM_NO" ColumnName="ITEM_NO" />
+          <ScalarProperty Name="UNIT_PRICE" ColumnName="UNIT_PRICE" />
+          <ScalarProperty Name="TOTAL_PRICE" ColumnName="TOTAL_PRICE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SOURCING_RFQ_REQ">
+      <EntityTypeMapping TypeName="Model.SOURCING_RFQ_REQ">
+        <MappingFragment StoreEntitySet="SOURCING_RFQ_REQ">
+          <ScalarProperty Name="MAPPING" ColumnName="MAPPING" />
+          <ScalarProperty Name="EXECGRANDTOTAL" ColumnName="EXECGRANDTOTAL" />
+          <ScalarProperty Name="EXECVATVALUE" ColumnName="EXECVATVALUE" />
+          <ScalarProperty Name="EXECVAT" ColumnName="EXECVAT" />
+          <ScalarProperty Name="EXECTOTALAMT" ColumnName="EXECTOTALAMT" />
+          <ScalarProperty Name="NEGGRANDTOTAL" ColumnName="NEGGRANDTOTAL" />
+          <ScalarProperty Name="NEGVATVALUE" ColumnName="NEGVATVALUE" />
+          <ScalarProperty Name="NEGVAT" ColumnName="NEGVAT" />
+          <ScalarProperty Name="NEGTOTALAMT" ColumnName="NEGTOTALAMT" />
+          <ScalarProperty Name="TEMP_NO" ColumnName="TEMP_NO" />
+          <ScalarProperty Name="RFQ_START_DATE" ColumnName="RFQ_START_DATE" />
+          <ScalarProperty Name="RFQ_CLOSE_DATE" ColumnName="RFQ_CLOSE_DATE" />
+          <ScalarProperty Name="INITIATOR_ID" ColumnName="INITIATOR_ID" />
+          <ScalarProperty Name="INITIATOR_NAME" ColumnName="INITIATOR_NAME" />
+          <ScalarProperty Name="DELIVERY_ADDRESS" ColumnName="DELIVERY_ADDRESS" />
+          <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SOURCING_ROLES">
+      <EntityTypeMapping TypeName="Model.SOURCING_ROLES">
+        <MappingFragment StoreEntitySet="SOURCING_ROLES">
+          <ScalarProperty Name="ROLE_ID" ColumnName="ROLE_ID" />
+          <ScalarProperty Name="ROLE_NAME" ColumnName="ROLE_NAME" />
+          <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SOURCING_USERS">
+      <EntityTypeMapping TypeName="Model.SOURCING_USERS">
+        <MappingFragment StoreEntitySet="SOURCING_USERS">
+          <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />
+          <ScalarProperty Name="USERNAME" ColumnName="USERNAME" />
+          <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+          <ScalarProperty Name="EMP_NUM" ColumnName="EMP_NUM" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="DESIGNATION" ColumnName="DESIGNATION" />
+          <ScalarProperty Name="DEPARTMENT" ColumnName="DEPARTMENT" />
+          <ScalarProperty Name="TELEPHONE" ColumnName="TELEPHONE" />
+          <ScalarProperty Name="CATEGORY" ColumnName="CATEGORY" />
+          <ScalarProperty Name="ROLE" ColumnName="ROLE" />
+          <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+          <ScalarProperty Name="CATEGORY_ID" ColumnName="CATEGORY_ID" />
+          <ScalarProperty Name="ROLE_ID" ColumnName="ROLE_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SOURCING_VENDOR_LOGIN_DETAILS">
+      <EntityTypeMapping TypeName="Model.SOURCING_VENDOR_LOGIN_DETAILS">
+        <MappingFragment StoreEntitySet="SOURCING_VENDOR_LOGIN_DETAILS">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="USERNAME" ColumnName="USERNAME" />
+          <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
+          <ScalarProperty Name="LASTLOGIN" ColumnName="LASTLOGIN" />
+          <ScalarProperty Name="VENDOR_ID" ColumnName="VENDOR_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SOURCING_MESSAGE_RECIPIENT">
+      <EntityTypeMapping TypeName="Model.SOURCING_MESSAGE_RECIPIENT">
+        <MappingFragment StoreEntitySet="SOURCING_MESSAGE_RECIPIENT">
+          <ScalarProperty Name="IS_READ" ColumnName="IS_READ" />
+          <ScalarProperty Name="MESSAGE_ID" ColumnName="MESSAGE_ID" />
+          <ScalarProperty Name="RECIPIENT_TYPE" ColumnName="RECIPIENT_TYPE" />
+          <ScalarProperty Name="RECIPIENT_GROUP_ID" ColumnName="RECIPIENT_GROUP_ID" />
+          <ScalarProperty Name="RECIPIENT_ID" ColumnName="RECIPIENT_ID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SOURCING_MESSAGE">
+      <EntityTypeMapping TypeName="Model.SOURCING_MESSAGE">
+        <MappingFragment StoreEntitySet="SOURCING_MESSAGE">
+          <ScalarProperty Name="MESSAGE_BODY" ColumnName="MESSAGE_BODY" />
+          <ScalarProperty Name="DATE_CREATED" ColumnName="DATE_CREATED" />
+          <ScalarProperty Name="PARENT_MESSAGE_ID" ColumnName="PARENT_MESSAGE_ID" />
+          <ScalarProperty Name="MAIL_SUBJECT" ColumnName="MAIL_SUBJECT" />
+          <ScalarProperty Name="CREATORTYPE" ColumnName="CREATORTYPE" />
+          <ScalarProperty Name="CREATORID" ColumnName="CREATORID" />
+          <ScalarProperty Name="TEMP_ID" ColumnName="TEMP_ID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SOURCING_PROPOSAL">
+      <EntityTypeMapping TypeName="Model.SOURCING_PROPOSAL">
+        <MappingFragment StoreEntitySet="SOURCING_PROPOSAL">
+          <ScalarProperty Name="REQUEST_TYPE" ColumnName="REQUEST_TYPE" />
+          <ScalarProperty Name="PROPOSAL" ColumnName="PROPOSAL" />
+          <ScalarProperty Name="TEMPID" ColumnName="TEMPID" />
+          <ScalarProperty Name="VENDORID" ColumnName="VENDORID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SOURCING_RFP_RFI_REQ">
+      <EntityTypeMapping TypeName="Model.SOURCING_RFP_RFI_REQ">
+        <MappingFragment StoreEntitySet="SOURCING_RFP_RFI_REQ">
+          <ScalarProperty Name="MAPPING" ColumnName="MAPPING" />
+          <ScalarProperty Name="EXECGRANDTOTAL" ColumnName="EXECGRANDTOTAL" />
+          <ScalarProperty Name="EXECVATVALUE" ColumnName="EXECVATVALUE" />
+          <ScalarProperty Name="EXECVAT" ColumnName="EXECVAT" />
+          <ScalarProperty Name="EXECTOTALAMT" ColumnName="EXECTOTALAMT" />
+          <ScalarProperty Name="NEGGRANDTOTAL" ColumnName="NEGGRANDTOTAL" />
+          <ScalarProperty Name="NEGVATVALUE" ColumnName="NEGVATVALUE" />
+          <ScalarProperty Name="NEGVAT" ColumnName="NEGVAT" />
+          <ScalarProperty Name="NEGTOTALAMT" ColumnName="NEGTOTALAMT" />
+          <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+          <ScalarProperty Name="INITIATION_DATE" ColumnName="INITIATION_DATE" />
+          <ScalarProperty Name="INITIATOR_NAME" ColumnName="INITIATOR_NAME" />
+          <ScalarProperty Name="INITIATOR" ColumnName="INITIATOR" />
+          <ScalarProperty Name="LST_RPF_RECPT_DATE" ColumnName="LST_RPF_RECPT_DATE" />
+          <ScalarProperty Name="BANK_QRY_RES_DATE" ColumnName="BANK_QRY_RES_DATE" />
+          <ScalarProperty Name="LST_QRY_RECEIPT_DATE" ColumnName="LST_QRY_RECEIPT_DATE" />
+          <ScalarProperty Name="TECHNICAL_PROPOSAL" ColumnName="TECHNICAL_PROPOSAL" />
+          <ScalarProperty Name="WORK_SCOPE" ColumnName="WORK_SCOPE" />
+          <ScalarProperty Name="PROJECT_OBJECTIVE" ColumnName="PROJECT_OBJECTIVE" />
+          <ScalarProperty Name="UBN_OVERVIEW" ColumnName="UBN_OVERVIEW" />
+          <ScalarProperty Name="DUE_TIME" ColumnName="DUE_TIME" />
+          <ScalarProperty Name="DUE_DATE" ColumnName="DUE_DATE" />
+          <ScalarProperty Name="ISSUE_DATE" ColumnName="ISSUE_DATE" />
+          <ScalarProperty Name="PRJECT_TITLE" ColumnName="PRJECT_TITLE" />
+          <ScalarProperty Name="TEMP_ID" ColumnName="TEMP_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SOURCING_RFQ_ITEM">
+      <EntityTypeMapping TypeName="Model.SOURCING_RFQ_ITEM">
+        <MappingFragment StoreEntitySet="SOURCING_RFQ_ITEM">
+          <ScalarProperty Name="RFI_INFO" ColumnName="RFI_INFO" />
+          <ScalarProperty Name="TOTAL_PRICE" ColumnName="TOTAL_PRICE" />
+          <ScalarProperty Name="UNIT_PRICE" ColumnName="UNIT_PRICE" />
+          <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+          <ScalarProperty Name="UNIT_OF_MEAS" ColumnName="UNIT_OF_MEAS" />
+          <ScalarProperty Name="QUANTITY" ColumnName="QUANTITY" />
+          <ScalarProperty Name="TEMP_NO" ColumnName="TEMP_NO" />
+          <ScalarProperty Name="ITEM_NO" ColumnName="ITEM_NO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SOURCING_NEG_PRICE">
+      <EntityTypeMapping TypeName="Model.SOURCING_NEG_PRICE">
+        <MappingFragment StoreEntitySet="SOURCING_NEG_PRICE">
+          <ScalarProperty Name="NEG_NO" ColumnName="NEG_NO" />
+          <ScalarProperty Name="TOTAL_PRICE" ColumnName="TOTAL_PRICE" />
+          <ScalarProperty Name="UNIT_PRICE" ColumnName="UNIT_PRICE" />
+          <ScalarProperty Name="TEMP_NO" ColumnName="TEMP_NO" />
+          <ScalarProperty Name="ITEM_NO" ColumnName="ITEM_NO" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SOURCING_NEGOTIATIONS">
+      <EntityTypeMapping TypeName="Model.SOURCING_NEGOTIATIONS">
+        <MappingFragment StoreEntitySet="SOURCING_NEGOTIATIONS">
+          <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+          <ScalarProperty Name="GRANDTOTAL" ColumnName="GRANDTOTAL" />
+          <ScalarProperty Name="VATVALUE" ColumnName="VATVALUE" />
+          <ScalarProperty Name="VAT" ColumnName="VAT" />
+          <ScalarProperty Name="TOTAL_AMT" ColumnName="TOTAL_AMT" />
+          <ScalarProperty Name="RES_DATE" ColumnName="RES_DATE" />
+          <ScalarProperty Name="VENDOR_ID" ColumnName="VENDOR_ID" />
+          <ScalarProperty Name="TEMP_ID" ColumnName="TEMP_ID" />
+          <ScalarProperty Name="NEGOTIATOR" ColumnName="NEGOTIATOR" />
+          <ScalarProperty Name="RESPONSE_NO" ColumnName="RESPONSE_NO" />
+          <ScalarProperty Name="NEG_NO" ColumnName="NEG_NO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

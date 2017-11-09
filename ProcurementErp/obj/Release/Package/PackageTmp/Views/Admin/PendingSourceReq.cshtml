@@ -1,0 +1,79 @@
+﻿@model IEnumerable<ProcurementErp.ViewModels.SourceRequestViewModel>
+@{
+    ViewBag.Title = "PendingSourceReq";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header" id="pendingRequestContainerBuyer">
+        <h1>
+            New Sourcing Request
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li class="active">New Sourcing Request</li>
+        </ol>
+    </section>
+    <!-- Main content -->
+    <section class="content" id="Pending">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="box box-primary">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">New Sourcing Request</h3>
+                    </div>
+                    <!-- /.box-header -->
+                    <!-- form start -->
+                    <div class="box-body">
+                        <table id="PendingRequestBuyer" class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Initiation Date</th>
+                                    <th>Initiator</th>
+                                    <th>Description</th>
+                                    <th>Status</th>
+                                    <th>View</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>@Html.DisplayFor(i => item.INITIATION_DATE)</td>
+                                        <td>@Html.DisplayFor(i => item.INITIATOR_NAME)</td>
+                                        <td>@Html.DisplayFor(i => item.ITEM_DESCRIPTION)</td>
+                                        <td><span class="label label-warning">@Html.DisplayFor(i => item.LINE_MANAGER_APPR)</span></td>
+                                        <td><a class="btn btn-primary view" href="@Url.Action("PendingSourceReqPopUp", "Admin", new { ItemId = item.TEMP_ID })">View</a></td>
+                                    </tr>
+                                }
+                            </tbody>
+
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+@section scripts {
+    <script src="@Url.Content("~/plugins/datatables/jquery.dataTables.min.js")"></script>
+    <script src="@Url.Content("~/plugins/datatables/dataTables.bootstrap.js")"></script>
+    <script src="~/JsFiles/DialogPopUpAdmin.js"></script>
+    <script src="~/JsFiles/PendingReqApproval.js"></script>
+
+    <script>
+  $(function () {
+    //$("#example2").DataTable();
+      $('#PendingRequestBuyer').dataTable({
+      "paging": true,
+      "lengthChange": true,
+      "searching": true,
+      "ordering": true,
+      "info": true,
+      "autoWidth": false
+    });
+  });
+    </script>
+}

@@ -1,0 +1,147 @@
+﻿@using System.Security.Claims;
+@using System.Security.Claims;
+
+@if (Request.IsAuthenticated)
+{
+    var identity = (ClaimsIdentity)User.Identity;
+    var name = identity.FindFirst(ClaimTypes.GivenName).Value;
+    var BranchCode = identity.FindFirst(ClaimTypes.PostalCode).Value;
+    var Dept = identity.FindFirst(ClaimTypes.UserData).Value;
+    <aside class="main-sidebar">
+        <!-- sidebar: style can be found in sidebar.less -->
+        <section class="sidebar">
+            <!-- Sidebar user panel -->
+            <div class="user-panel">
+                <div class="pull-left image">
+                    <img src="@Url.Content("~/dist/img/defaultImage.png")" class="img-circle" alt="User Image">
+                </div>
+                <div class="pull-left info">
+                    <p>@name</p>
+                    <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+                </div>
+            </div>
+
+            <!-- sidebar menu: : style can be found in sidebar.less -->
+            <ul class="sidebar-menu">
+                <li class="header">MAIN NAVIGATION</li>
+                <li class="active">
+                    <a href="@Url.Action("Index","Admin")">
+                        <i class="fa fa-dashboard"></i> <span>Dashboard</span>
+                    </a>
+                </li>
+                @if (User.IsInRole("Super Admin"))
+                {
+                    <li class="treeview">
+                        <a href="#">
+                            <i class="fa fa-user"></i> <span>Users</span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a href="@Url.Action("Index", "User")"><i class="fa fa-users"></i> View Users</a></li>
+                            <li><a href="@Url.Action("Create", "User")"><i class="fa fa-user-plus"></i>Add User</a></li>
+                        </ul>
+                    </li>
+                    @*<li class="treeview">
+                        <a href="#">
+                            <i class="fa fa-hand-grab-o"></i> <span>Role</span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a href="@Url.Action("Index", "Role")"><i class="fa fa-eye"></i> View Roles</a></li>
+                            <li><a href="@Url.Action("Create", "Role")"><i class="fa fa-plus"></i>Add Role</a></li>
+                        </ul>
+                    </li>*@
+                }
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-hourglass-2"> Sourcing Request</i>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li>
+                            <a href="@Url.Action("PendingSourceReq","Admin")">
+                                <i class="fa fa-inbox"></i> <span>Pending Request</span>
+                                <span class="pull-right-container" id="PendingSourceReqCount">
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("TreatedSourceReq","Admin")">
+                                <i class="fa fa-mail-reply-all"></i> <span> Treated Request</span>
+                                <span class="pull-right-container" id="ApprovedReqCount">
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="@Url.Action("Index", "Request")">
+                        <i class="fa fa-plus"></i> <span>New Request</span>
+                        <span class="pull-right-container">
+                        </span>
+                    </a>
+                </li>
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-chevron-down"> Running Request</i>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li>
+                            <a href="@Url.Action("RFIList", "RunningRequest")">
+                                <i class="fa fa-info-circle"></i> <span>RFI</span>
+                                <span class="pull-right-container" id="PendingSourceReqCount">
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("RFQList", "RunningRequest")">
+                                <i class="fa fa-tags"></i> <span>RFQ</span>
+                                <span class="pull-right-container" id="ApprovedReqCount">
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("RFPList", "RunningRequest")">
+                                <i class="fa fa-clock-o"></i> <span>RFP</span>
+                                <span class="pull-right-container" id="ApprovedReqCount">
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-chevron-down">Request History</i>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li>
+                            <a href="@Url.Action("RFIList", "History")">
+                                <i class="fa fa-info-circle"></i> <span>RFI</span>
+                                <span class="pull-right-container" id="PendingSourceReqCount">
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("RFQList", "History")">
+                                <i class="fa fa-tags"></i> <span>RFQ</span>
+                                <span class="pull-right-container" id="ApprovedReqCount">
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("RFPList", "History")">
+                                <i class="fa fa-clock-o"></i> <span>RFP</span>
+                                <span class="pull-right-container" id="ApprovedReqCount">
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" data-toggle="modal" data-target="#modal-default">
+                        <i class="fa fa-search"></i> <span>Search</span>
+                    </a>
+                </li> 
+            </ul>
+        </section>
+        <!-- /.sidebar -->
+    </aside>
+}
+

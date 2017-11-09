@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="02b3da3dc956497a9f018d4d977e1354" Name="Diagram1">
+        <EntityTypeShape EntityType="DataModel.SOURCING_CATEGORIES" Width="1.5" PointX="0.75" PointY="2" />
+        <EntityTypeShape EntityType="DataModel.SOURCING_CONTACTEDVENDOR" Width="1.5" PointX="5.75" PointY="0.75" />
+        <EntityTypeShape EntityType="DataModel.SOURCING_CONTACTPERSON" Width="1.5" PointX="2.75" PointY="5.75" />
+        <EntityTypeShape EntityType="DataModel.SOURCING_REF_TEMP_LINK" Width="1.5" PointX="4.75" PointY="5.75" />
+        <EntityTypeShape EntityType="DataModel.SOURCING_REQUEST_FILES" Width="1.5" PointX="7.75" PointY="0.75" />
+        <EntityTypeShape EntityType="DataModel.SOURCING_REQUEST_TYPE" Width="1.5" PointX="8.75" PointY="3.75" />
+        <EntityTypeShape EntityType="DataModel.SOURCING_RFQ_QUOTATION" Width="1.5" PointX="9.75" PointY="0.75" />
+        <EntityTypeShape EntityType="DataModel.SOURCING_RFQ_REQ" Width="1.5" PointX="2.75" PointY="9.75" />
+        <EntityTypeShape EntityType="DataModel.SOURCING_ROLES" Width="1.5" PointX="0.75" PointY="6.125" />
+        <EntityTypeShape EntityType="DataModel.SOURCING_USERS" Width="1.5" PointX="3" PointY="1" />
+        <EntityTypeShape EntityType="DataModel.SOURCING_VENDOR_LOGIN_DETAILS" Width="1.5" PointX="10.75" PointY="3.75" />
+        <AssociationConnector Association="DataModel.FK_USER_CAT" />
+        <AssociationConnector Association="DataModel.FK_USER_ROLE" />
+        <EntityTypeShape EntityType="DataModel.SOURCING_MESSAGE" Width="1.5" PointX="11.375" PointY="6.75" />
+        <EntityTypeShape EntityType="DataModel.SOURCING_MESSAGE_RECIPIENT" Width="1.5" PointX="9.375" PointY="11.75" />
+        <EntityTypeShape EntityType="DataModel.SOURCING_PROPOSAL" Width="1.5" PointX="11.375" PointY="10.75" />
+        <EntityTypeShape EntityType="DataModel.SOURCING_REQUEST" Width="1.5" PointX="5.375" PointY="8.75" />
+        <EntityTypeShape EntityType="DataModel.SOURCING_RFP_RFI_REQ" Width="1.5" PointX="13.375" PointY="3.75" />
+        <EntityTypeShape EntityType="DataModel.SOURCING_RFQ_ITEM" Width="1.5" PointX="7.375" PointY="7.75" />
+        <EntityTypeShape EntityType="DataModel.SOURCING_NEG_PRICE" Width="1.5" PointX="12.375" PointY="0.75" />
+        <EntityTypeShape EntityType="DataModel.SOURCING_NEGOTIATIONS" Width="1.5" PointX="13.375" PointY="10.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

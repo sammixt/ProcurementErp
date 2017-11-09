@@ -1,0 +1,376 @@
+﻿@model ProcurementErpVendor.Models.RFQSummaryDisplay
+@{
+    ViewBag.Title = "Edit Quotation";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header" id="RequestHistoryContainer">
+        <h1>
+            Request For Quotation
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li class="">New Request</li>
+            <li class="active">RFQ</li>
+        </ol>
+    </section>
+    <section class="content" id="Roles">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="box box-primary">
+                    <div class="box-header with-border">
+                        <p class="text-bold" style="text-transform:uppercase">
+                            Fill out the Form
+                        </p>
+                        <div class="box-tools pull-right">
+                            <span class="text-bold text-info Timer"></span>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <!--Req form II -->
+                    <div class="box-body">
+                        <div class="col-md-12">
+
+                            <form method="post" action="@Url.Action("UpdateQuotation", "Request")" class="form-group col-md-12" enctype="multipart/form-data">
+                                <div class="box-body">
+                                    <table class="table table-bordered table-striped">
+                                        <tr>
+                                            <td colspan="2"><p class="text-center text-bold">REQUEST FOR QUOTATION (RFQ)</p></td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2">
+                                                <table class="table table-bordered table-striped">
+                                                    <tr>
+                                                        <th>Requester Information</th>
+                                                        <th>RFQ Start Date</th>
+                                                        <th>RFQ Closing Date</th>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <table class="table table-bordered table-striped">
+                                                                <tr>
+                                                                    <th>Contact Name</th>
+                                                                    <td>@Model.Initiator.NAME</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th>Telephone Number</th>
+                                                                    <td>@Model.Initiator.TELEPHONE</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th>Email</th>
+                                                                    <td>@Model.Initiator.EMAIL</td>
+                                                                </tr>
+                                                            </table>
+                                                        </td>
+                                                        <td>@Model.Request.RFQ_START_DATE.Value.ToShortDateString()</td>
+                                                        <td>@Model.Request.RFQ_CLOSE_DATE.Value.ToShortDateString()</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>RFQ Number</th>
+                                                        <td colspan="2">
+                                                            @Model.RefNum.REF_NO
+                                                        <input type="hidden" name="REF_NO" value="@Model.RefNum.REF_NO">
+                                                        <input type="hidden" name="TEMP_NO" value="@Model.Request.TEMP_NO" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Delivery Address</th>
+                                                    <td colspan="2">@Model.Request.DELIVERY_ADDRESS</td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="box-body">
+                                @if (Model._Negotiations != null)
+                                {
+                                    var negotiations = Model._Negotiations.FirstOrDefault();
+                                    <table class="table table-bordered table-striped">
+                                        <tr>
+                                            <th colspan="6" class="text-uppercase text-bold">Items</th>
+                                        </tr>
+                                        <tr>
+                                            <th>Item No.</th>
+                                            <th>Quantity</th>
+                                            <th>Unit of Measurement</th>
+                                            <th>Goods & Services Description</th>
+                                            <th>Unit Price</th>
+                                            <th>Total Price</th>
+                                        </tr>
+                                        @if (negotiations._Item != null)
+                                        {
+                                            int count = 1;
+                                            for (int i = 0; i < negotiations._Item.Where(m => m.NegNum == negotiations.NEG_NO).Count(); i++)
+                                            {
+                                                <tr>
+                                                    <td>@count</td>
+                                                    <td id="Qty_@count">@negotiations._Item[i].QUANTITY</td>
+                                                    <td>@negotiations._Item[i].UNIT_OF_MEAS</td>
+                                                    <td>@negotiations._Item[i].DESCRIPTION</td>
+                                                    <td>
+                                                        @Html.TextBox("Model.Items[" + i + "].UNIT_PRICE", negotiations._Item[i].UNIT_PRICE, new { @onchange = "CalculateTotal(" + count + ")", @id = "Price_" + count, type = "number", @class = "form-control", @required = "required" })
+                                                        @*<input type="number" onchange="CalculateTotal(@count)" id="Price_@count" name="UNIT_PRICE["@count"]" class="form-control" />*@
+                                                        @Html.Hidden("Model.Items[" + i + "].ID", negotiations._Item[i].ID, new { @value = negotiations._Item[i].ID })
+                                                        @Html.Hidden("Model.Items[" + i + "].ITEM_NO", negotiations._Item[i].ITEM_NO, new { @value = negotiations._Item[i].ITEM_NO })
+                                                        @*<input type="hidden" name="ITEM_NO["@count "]" value="@item.ITEM_NO" />*@
+                                                    </td>
+                                                    <td>
+                                                        <p class="form-static-control"><span id="currency_@count"></span><span id="totalPrice_@count" class="total">@negotiations._Item[i].TOTAL_PRICE</span></p>
+                                                        @Html.Hidden("Model.Items[" + i + "].TOTAL_PRICE",negotiations._Item[i].TOTAL_PRICE ,new { @id = "totalPriceField_" + @count })
+                                                        
+                                                      
+
+                                                    </td>
+                                                </tr>
+                                                count++;
+                                            }
+                                        }
+                                        <tr>
+                                            <td colspan="3">&nbsp;</td>
+                                            <td colspan="2">
+                                                <table class="table table-bordered">
+                                                    <tr>
+                                                        <th colspan="2">Total Amount before Tax</th>
+                                                    </tr>
+                                                    <tr>
+                                                        <th colspan="2">
+                                                            <span class="text-bold">VAT (%)</span>
+                                                            <input class="pull-right" value="@negotiations.VAT" required id="VAT" onchange="getVat()" name="VAT" type="number" />
+
+                                                            <input type="hidden" name="NEGNO" value="@negotiations.NEG_NO" />
+                                                        </th>
+                                                    </tr>
+                                                    <tr>
+                                                        <th colspan="2">Grand Total including VAT</th>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                            <td>
+                                                <table class="table table-bordered">
+                                                    <tr>
+                                                        <td>
+                                                            <span id="TotalBFTaxCur"></span> <span id="TotalBFTax">@negotiations.TOTAL_AMT</span>
+                                                            <input type="hidden" value="@negotiations.TOTAL_AMT" name="TOTALBFTAX" id="TotalBFTaxField" />
+                                                            @*@Html.HiddenFor(model => Model.Vendors.FirstOrDefault().TOTALBFTAX, new { id = "TotalBFTaxField" })>*@
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <span id="TotalVatCur"></span> <span id="TotalVat">@negotiations.VATVALUE</span>
+                                                            <input type="hidden" value="@negotiations.VATVALUE" name="VATVALUE" id="TotalVatField" />
+                                                            @*@Html.HiddenFor(model => model.Vendors.FirstOrDefault().VAT, new { id = "TotalVatField" })*@
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <span id="GrandTotalCur"></span> <span id="GrandTotal">@negotiations.GRANDTOTAL</span>
+                                                            <input type="hidden" value="@negotiations.GRANDTOTAL" name="GRANDTOTAL" id="GrandTotalField" />
+                                                            @*@Html.HiddenFor(model => model.Vendors.FirstOrDefault().GRANDTOTAL, new { id = "GrandTotalField" })*@
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                }
+                                
+                            </div>
+
+                            <div class="box-body">
+                                <table class="table table-bordered table-striped">
+                                    <tr>
+                                        <td colspan="2"><p class="text-center text-bold">SUPPLIERS INFORMATION</p></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">
+                                            <table class="table table-bordered table-striped">
+                                                <tr>
+                                                    <th>Supplies Information</th>
+                                                    <th>Suppliers Address</th>
+                                                    <th>Payment Terms</th>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <table class="table table-bordered table-striped">
+                                                            <tr>
+                                                                <th>Contact Name</th>
+                                                                <td>
+                                                                    <input value="@Model._Vendor.CONTACT_NAME" type="text" required name="CONTACT_NAME" class="form-control" />
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th>Telephone Number</th>
+                                                                <td>
+                                                                    <input value="@Model._Vendor.TELEPHONE" type="tel" required name="TELEPHONE" class="form-control" />
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th>Email</th>
+                                                                <td><input value="@Model._Vendor.EMAIL" type="email" required name="EMAIL" class="form-control" /></td>
+                                                            </tr>
+                                                        </table>
+                                                    </td>
+                                                    <td><textarea class="form-control" required name="ADDRESS" rows="5">@Model._Vendor.ADDRESS</textarea></td>
+                                                    <td><textarea class="form-control" name="PAYMENT_TERMS" rows="5">@Model._Vendor.PAYMENT_TERMS</textarea></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <table class="table table-bordered table-striped">
+                                                            <tr>
+                                                                <th>Quotation Date</th>
+                                                                <td><input value="@DateTime.Now.ToShortDateString()" type="text" name="RESPONSE_DATE" class="form-control" data-provide="datepicker" data-date-start-date="0e" readonly /></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th>Expected Delivery Date</th>
+                                                                <td><input value="@(Model._Vendor.EXPECTED_DELIVERY_DATE != null?Model._Vendor.EXPECTED_DELIVERY_DATE.Value.ToShortDateString():"")" required name="EXPECTED_DELIVERY_DATE" type="text" data-provide="datepicker" class="form-control" data-date-start-date="0d" /></td>
+                                                            </tr>
+                                                        </table>
+                                                    </td>
+                                                    <td colspan="2">
+                                                        <table class="table table-bordered table-striped">
+                                                            <tr>
+                                                                <th>Supplier's Quotation #</th>
+                                                            </tr>
+                                                            <tr>
+                                                                <td><input value="@Model._Vendor.SUPPLIERS_QUOTE" name="SUPPLIERS_QUOTE" class="form-control" type="text" /></td>
+                                                            </tr>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                                @if (Model._Files.Count() > 0)
+                                                {
+                                                    <tr>
+                                                        <td colspan="6">
+                                                            <table class="table table-bordered table-striped">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th colspan="3">Supporting Documents</th>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <th>File Name</th>
+                                                                        <th>File Type</th>
+                                                                        <th>&nbsp;</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    @foreach (var item in Model._Files)
+                                                                    {
+                                                                        <tr>
+                                                                            <td>@item.FILENAME</td>
+                                                                            <td>@item.FILETYPE</td>
+                                                                            <td><a href="@Url.Action("DownloadFile", "Request", new { FIleId = item.FIILE_ID })" class="btn btn-sm btn-success">Download</a></td>
+                                                                        </tr>
+                                                                    }
+                                                                </tbody>
+                                                            </table>
+                                                        </td>
+                                                    </tr>
+                                                }
+                                                
+                                                <tr>
+                                                    <td colspan="6">
+                                                        <div class="form-group">
+                                                            <div class="btn btn-default btn-file">
+                                                                <i class="fa fa-paperclip"></i> Attachment
+                                                                <input type="file" name="Docs" accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel" multiple>
+                                                            </div>
+                                                            <p class="help-block">Attach supporting document, PDF and Excel only.</p>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+
+                            <div class="form-group col-md-12 col-md-offset-5">
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+                        </form>
+                        <!-- /.box-body -->
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+</div>
+@section scripts{
+    <script>
+    $(function () {
+        //var start = new Date;
+        var date1 = new Date("@DateTime.Now.ToShortDateString()");
+        var date2 = new Date("@Model.Request.RFQ_CLOSE_DATE.Value.ToShortDateString()");
+        var timeDiff = Math.abs(date2.getTime() - date1.getTime());
+        var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
+        $('.Timer').text(diffDays + " Days Left");
+
+        $('input[name="EXPECTED_DELIVERY_DATE"]').keypress(function (e) {
+            e.preventDefault();
+        });
+    })
+
+        function CalculateTotal(id) {
+            //alert(id);
+            var $total = $('.total').length;
+            var qty = $('#Qty_' + id).text()
+            var _qty = parseFloat(qty);
+            var price = $('#Price_' + id).val();
+            var _price = parseFloat(price);
+            var _totalPrice = _qty * _price;
+            $('#currency_'+id).text('NGN');
+            $('#totalPrice_' + id).text(_totalPrice);
+            $('#totalPriceField_' + id).val(_totalPrice)
+            var $sum = 0;
+            for(var i=1; i< $total +1;i++){
+                if(isNaN(parseFloat($('#totalPrice_' + i).text()))){
+                    $sum += 0;
+                }else{
+                    $sum += parseFloat($('#totalPrice_' + i).text());
+                }
+                //$sum += isNaN(parseFloat($('#totalPrice_' + i).text())) ? 0 : parseFloat($('#totalPrice_' + i).text());
+                //alert($('#totalPrice_' + i).text());
+                //alert(parseFloat($sum));
+            }
+
+            $('#TotalBFTax').text(parseFloat($sum));
+            $('#TotalBFTaxField').val(parseFloat($sum));
+            $('#TotalBFTaxCur').text('NGN');
+            getVat();
+            //alert("Quantity : "+_qty);
+            //alert("Price : "+_price);
+            //alert("Total : "+_totalPrice)
+            //alert("Total string : "+totalPrice)
+        }
+
+        function getVat() {
+            var $vat = $('#VAT').val();
+            //alert($vat);
+            if (isNaN(parseInt($vat))) { _vat = 0; } else { _vat = parseFloat($vat) }
+
+            var $total = $('#TotalBFTax').text();
+            var _total = parseFloat($total);
+            var percent = _vat / 100;
+            var grandTotal = _total * percent;
+            $('#TotalVat').text(parseFloat(grandTotal));
+            $('#TotalVatField').val(parseFloat(grandTotal));
+            $('#TotalVatCur').text('NGN');
+            //get grand total amount
+            var $totalAmt = $('#TotalBFTax').text()
+            _totalAmt = parseFloat($totalAmt);
+            var $totalVat = $('#TotalVat').text();
+            _totalVat = parseFloat($totalVat)
+            var grandTotal = (_totalAmt + _totalVat);
+            $('#GrandTotal').text(grandTotal.toLocaleString());
+            $('#GrandTotalField').val(grandTotal);
+            $('#GrandTotalCur').text('NGN');
+
+        }
+    </script>
+}
+

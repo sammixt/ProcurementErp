@@ -1,0 +1,258 @@
+7/6/2017 11:11:08 AM An error occured upon inserting new request into database. Error:    at System.Data.Entity.Internal.InternalContext.SaveChanges()
+   at System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   at System.Data.Entity.DbContext.SaveChanges()
+   at ProcurementErp.BLL.ProcessRequest.ProcessNewRequest(SourceRequestViewModel model, String _EmpNum, String _Email) in c:\Users\scezeala\Documents\Visual Studio 2013\Projects\ProcurementErp\ProcurementErp\BLL\ProcessRequest.cs:line 47
+7/6/2017 11:12:55 AM An error occured upon inserting new request into database. Error:    at System.Data.Entity.Internal.InternalContext.SaveChanges()
+   at System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   at System.Data.Entity.DbContext.SaveChanges()
+   at ProcurementErp.BLL.ProcessRequest.ProcessNewRequest(SourceRequestViewModel model, String _EmpNum, String _Email)
+7/6/2017 11:24:01 AM An error occured upon inserting new request into database. Error:    at System.Data.Entity.Internal.InternalContext.SaveChanges()
+   at System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   at System.Data.Entity.DbContext.SaveChanges()
+   at ProcurementErp.BLL.ProcessRequest.ProcessNewRequest(SourceRequestViewModel model, String _EmpNum, String _Email) in c:\Users\scezeala\Documents\Visual Studio 2013\Projects\ProcurementErp\ProcurementErp\BLL\ProcessRequest.cs:line 47
+7/6/2017 11:43:12 AM An error occured upon inserting new request into database. Error:    at System.Data.Entity.Internal.InternalContext.SaveChanges()
+   at System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   at System.Data.Entity.DbContext.SaveChanges()
+   at ProcurementErp.BLL.ProcessRequest.ProcessNewRequest(SourceRequestViewModel model, String _EmpNum)
+7/10/2017 10:04:12 AM An error occurred while creating user. Error: LINQ to Entities does not recognize the method 'System.Decimal ToDecimal(System.String)' method, and this method cannot be translated into a store expression.
+7/10/2017 10:06:15 AM An error occurred while creating user. Error: LINQ to Entities does not recognize the method 'System.Decimal ToDecimal(System.String)' method, and this method cannot be translated into a store expression.
+7/10/2017 10:16:44 AM Entity of type SOURCING_USERS in state Added has the following validation errors:
+7/10/2017 10:16:46 AM - Property: CATEGORY, Error: The field CATEGORY must be a string or array type with a maximum length of '50'. 
+7/10/2017 10:16:49 AM - Property: ROLE, Error: The field ROLE must be a string or array type with a maximum length of '100'. 
+7/10/2017 12:01:18 PM Error retrieving user. Error: The underlying provider failed on Open.
+7/11/2017 2:37:37 PM Error retrieving count from DB. Error: The underlying provider failed on Open.
+7/11/2017 6:46:36 PM Unable to retrieve vendors from xxubn_suppliers_info_v. Error: Specified cast is not valid.
+7/11/2017 6:48:00 PM Unable to retrieve vendors from xxubn_suppliers_info_v. Error: Specified cast is not valid.
+7/11/2017 6:48:36 PM Unable to retrieve vendors from xxubn_suppliers_info_v. Error: Specified cast is not valid.
+7/11/2017 6:52:15 PM Unable to retrieve vendors from xxubn_suppliers_info_v. Error: Unable to cast object of type 'System.DBNull' to type 'System.String'.
+7/11/2017 6:55:25 PM Unable to retrieve vendors from xxubn_suppliers_info_v. Error: Unable to cast object of type 'System.DBNull' to type 'System.String'.
+7/11/2017 6:56:41 PM Unable to retrieve vendors from xxubn_suppliers_info_v. Error: Unable to cast object of type 'System.DBNull' to type 'System.String'.
+7/17/2017 9:39:24 AM Unable to retrieve vendors from xxubn_suppliers_info_v. Error: Connection request timed out
+7/17/2017 9:44:30 AM Unable to retrieve vendors from xxubn_suppliers_info_v. Error: Connection request timed out
+7/17/2017 4:54:02 PM Unable to retrieve Contacted Vendor. Error: Value cannot be null.
+Parameter name: addresses
+7/17/2017 5:11:48 PM Unable to retrieve Contacted Vendor. Error: Value cannot be null.
+Parameter name: addresses
+7/17/2017 5:13:11 PM Error sending mail with Error Message: Mailbox unavailable. The server response was: 5.7.1 Unable to relay
+7/20/2017 3:36:00 PM Error validatiing user against DB. Error: An error occurred while executing the command definition. See the inner exception for details.
+7/20/2017 3:36:01 PM Error retrieving count. Error: An error occurred while executing the command definition. See the inner exception for details.
+7/20/2017 3:36:01 PM Error retrieving count from DB. Error: An error occurred while executing the command definition. See the inner exception for details.
+7/20/2017 3:36:52 PM Error retrieving count from DB. Error: An error occurred while executing the command definition. See the inner exception for details.
+7/20/2017 3:36:52 PM Error retrieving count. Error: The underlying provider failed on Open.
+7/20/2017 3:37:06 PM Error retrieving count. Error: An error occurred while executing the command definition. See the inner exception for details.
+7/20/2017 3:37:06 PM Error retrieving count from DB. Error: An error occurred while executing the command definition. See the inner exception for details.
+7/20/2017 3:39:19 PM Error retrieving count. Error: An error occurred while executing the command definition. See the inner exception for details.
+7/20/2017 3:39:19 PM Error retrieving count from DB. Error: An error occurred while executing the command definition. See the inner exception for details.
+7/20/2017 3:39:51 PM Error validatiing user against DB. Error: An error occurred while executing the command definition. See the inner exception for details.
+7/24/2017 5:04:19 PM Error retrieving count. Error: The underlying provider failed on Open.
+7/26/2017 2:00:04 PM Error retrieving count. Error: The underlying provider failed on Open.
+7/27/2017 12:57:17 PM Error:    at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.Linq.DbQueryProvider.Execute[TResult](Expression expression)
+   at System.Linq.Queryable.FirstOrDefault[TSource](IQueryable`1 source)
+   at ProcurementErpVendor.BLL.ProcessResponseRFP.InsertSuppliesInfo() in c:\Users\scezeala\Documents\Visual Studio 2013\Projects\ProcurementErp\ProcurementErpVendor\BLL\ProcessResponse.cs:line 137
+7/28/2017 10:47:35 AM Error validatiing user against DB. Error: The underlying provider failed on Open.
+7/28/2017 11:48:17 AM Error validatiing user against DB. Error: The underlying provider failed on Open.
+7/28/2017 11:48:18 AM Error retrieving count. Error: The underlying provider failed on Open.
+7/28/2017 11:48:18 AM Error retrieving count from DB. Error: The underlying provider failed on Open.
+7/28/2017 11:48:49 AM Error retrieving count from DB. Error: The underlying provider failed on Open.
+7/28/2017 11:48:49 AM Error retrieving count. Error: The underlying provider failed on Open.
+7/31/2017 10:08:36 AM Error: Object reference not set to an instance of an object.-   at ProcurementErp.BLL.UpdateRequestBLL.GetRFQRequest() in c:\Users\scezeala\Documents\Visual Studio 2013\Projects\ProcurementErp\ProcurementErp\BLL\UpdateRequestBLL.cs:line 24
+7/31/2017 10:09:42 AM Error: Object reference not set to an instance of an object.-   at ProcurementErp.BLL.UpdateRequestBLL.GetRFQRequest() in c:\Users\scezeala\Documents\Visual Studio 2013\Projects\ProcurementErp\ProcurementErp\BLL\UpdateRequestBLL.cs:line 24
+7/31/2017 4:21:31 PM Error inserting into Contacted Vendors Table table. Error: Object reference not set to an instance of an object.
+7/31/2017 5:08:39 PM Error: Object reference not set to an instance of an object.
+7/31/2017 5:28:12 PM Error: An error occurred while updating the entries. See the inner exception for details.
+7/31/2017 5:35:43 PM Error: An error occurred while updating the entries. See the inner exception for details.
+7/31/2017 5:38:55 PM Error: An error occurred while updating the entries. See the inner exception for details.
+8/1/2017 6:50:19 AM Error: An error occurred while updating the entries. See the inner exception for details.
+8/1/2017 6:53:22 AM Error: An error occurred while updating the entries. See the inner exception for details.
+8/1/2017 7:07:40 AM Error: An error occurred while updating the entries. See the inner exception for details.
+8/3/2017 4:54:13 PM Error retrieving count. Error: The underlying provider failed on Open.
+8/3/2017 4:54:13 PM Error retrieving count from DB. Error: The underlying provider failed on Open.
+8/3/2017 5:00:36 PM Error retrieving count. Error: The underlying provider failed on Open.
+8/7/2017 8:56:26 AM Error retrieving role. Error: Object reference not set to an instance of an object.
+8/7/2017 8:58:06 AM Error retrieving role. Error: Object reference not set to an instance of an object.
+8/11/2017 8:08:52 AM Error: An error occurred while executing the command definition. See the inner exception for details. -    at System.Data.Entity.Core.EntityClient.Internal.EntityCommandDefinition.ExecuteStoreCommands(EntityCommand entityCommand, CommandBehavior behavior)
+   at System.Data.Entity.Core.Objects.Internal.ObjectQueryExecutionPlan.Execute[TResultType](ObjectContext context, ObjectParameterCollection parameterValues)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass7.<GetResults>b__6()
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass7.<GetResults>b__5()
+   at System.Data.Entity.Infrastructure.DefaultExecutionStrategy.Execute[TResult](Func`1 operation)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<System.Collections.Generic.IEnumerable<T>.GetEnumerator>b__0()
+   at System.Data.Entity.Internal.LazyEnumerator`1.MoveNext()
+   at System.Linq.Enumerable.FirstOrDefault[TSource](IEnumerable`1 source)
+   at System.Data.Entity.Core.Objects.ELinq.ObjectQueryProvider.<GetElementFunction>b__1[TResult](IEnumerable`1 sequence)
+   at System.Data.Entity.Core.Objects.ELinq.ObjectQueryProvider.ExecuteSingle[TResult](IEnumerable`1 query, Expression queryRoot)
+   at System.Data.Entity.Core.Objects.ELinq.ObjectQueryProvider.System.Linq.IQueryProvider.Execute[TResult](Expression expression)
+   at System.Data.Entity.Internal.Linq.DbQueryProvider.Execute[TResult](Expression expression)
+   at System.Linq.Queryable.FirstOrDefault[TSource](IQueryable`1 source)
+   at ProcurementErp.BLL.AnalysisBLL.GetRefNumberAndRequestType() in c:\Users\scezeala\Documents\Visual Studio 2013\Projects\ProcurementErp\ProcurementErp\BLL\AnalysisBLL.cs:line 130
+8/14/2017 10:28:35 AM Error: Object reference not set to an instance of an object. -    at ProcurementErp.BLL.AnalysisBLL.GetRefNumberAndRequestType() in c:\Users\scezeala\Documents\Visual Studio 2013\Projects\ProcurementErp\ProcurementErp\BLL\AnalysisBLL.cs:line 131
+8/17/2017 2:11:01 PM Error retrieving data for summary display. Error: Object reference not set to an instance of an object.
+8/17/2017 2:12:28 PM Error retrieving data for summary display. Error: Object reference not set to an instance of an object.
+8/17/2017 2:14:08 PM Error retrieving data for summary display. Error: Object reference not set to an instance of an object.
+8/17/2017 2:15:47 PM Error retrieving data for summary display. Error: Object reference not set to an instance of an object.
+8/17/2017 2:16:54 PM Error retrieving data for summary display. Error: Object reference not set to an instance of an object.
+8/22/2017 2:51:28 PM Error sending mail with Error Message: Mailbox unavailable. The server response was: 5.7.1 Unable to relay
+8/22/2017 2:51:38 PM Error sending mail with Error Message: Mailbox unavailable. The server response was: 5.7.1 Unable to relay
+8/22/2017 2:56:44 PM Error sending mail with Error Message: Mailbox unavailable. The server response was: 5.7.1 Unable to relay
+8/22/2017 2:56:55 PM Error sending mail with Error Message: Mailbox unavailable. The server response was: 5.7.1 Unable to relay
+8/22/2017 2:57:05 PM Error sending mail with Error Message: Mailbox unavailable. The server response was: 5.7.1 Unable to relay
+8/25/2017 9:28:32 AM Error retrieving data for summary display. Error: Object reference not set to an instance of an object.
+8/25/2017 9:28:49 AM Error retrieving data for summary display. Error: Object reference not set to an instance of an object.
+8/25/2017 9:30:14 AM Error retrieving data for summary display. Error: Object reference not set to an instance of an object.
+8/25/2017 9:30:39 AM Error retrieving data for summary display. Error: Object reference not set to an instance of an object.
+8/25/2017 9:31:27 AM Error retrieving data for summary display. Error: Object reference not set to an instance of an object.
+8/25/2017 9:50:34 AM Error sending mail with Error Message: Mailbox unavailable. The server response was: 5.7.1 Unable to relay
+8/28/2017 4:18:31 PM Error retrieving data for summary display. Error: Object reference not set to an instance of an object.
+8/29/2017 11:44:47 AM Error:    at System.ThrowHelper.ThrowInvalidOperationException(ExceptionResource resource)
+   at System.Nullable`1.get_Value()
+   at ProcurementErpVendor.BLL.Common.getInitiatorsEmail(Decimal Temp_No) in C:\Users\scezeala\Documents\Visual Studio 2017\Projects\ProcurementErp\ProcurementErpVendor\BLL\Common.cs:line 79
+   at ProcurementErpVendor.BLL.Common.NotifyProcurement(String VendorName, Decimal TempNo, String contentPath, String RefNum) in C:\Users\scezeala\Documents\Visual Studio 2017\Projects\ProcurementErp\ProcurementErpVendor\BLL\Common.cs:line 89
+   at ProcurementErpVendor.BLL.ProcessResponse.InsertSuppliesInfo() in C:\Users\scezeala\Documents\Visual Studio 2017\Projects\ProcurementErp\ProcurementErpVendor\BLL\ProcessResponse.cs:line 85
+8/29/2017 11:50:10 AM Error:    at System.ThrowHelper.ThrowInvalidOperationException(ExceptionResource resource)
+   at System.Nullable`1.get_Value()
+   at ProcurementErpVendor.BLL.Common.getInitiatorsEmail(Decimal Temp_No) in C:\Users\scezeala\Documents\Visual Studio 2017\Projects\ProcurementErp\ProcurementErpVendor\BLL\Common.cs:line 79
+   at ProcurementErpVendor.BLL.Common.NotifyProcurement(String VendorName, Decimal TempNo, String contentPath, String RefNum) in C:\Users\scezeala\Documents\Visual Studio 2017\Projects\ProcurementErp\ProcurementErpVendor\BLL\Common.cs:line 89
+   at ProcurementErpVendor.BLL.ProcessResponse.InsertSuppliesInfo() in C:\Users\scezeala\Documents\Visual Studio 2017\Projects\ProcurementErp\ProcurementErpVendor\BLL\ProcessResponse.cs:line 85
+8/29/2017 11:53:27 AM Error:    at System.ThrowHelper.ThrowInvalidOperationException(ExceptionResource resource)
+   at System.Nullable`1.get_Value()
+   at ProcurementErpVendor.BLL.Common.getInitiatorsEmail(Decimal Temp_No) in C:\Users\scezeala\Documents\Visual Studio 2017\Projects\ProcurementErp\ProcurementErpVendor\BLL\Common.cs:line 79
+   at ProcurementErpVendor.BLL.Common.NotifyProcurement(String VendorName, Decimal TempNo, String contentPath, String RefNum) in C:\Users\scezeala\Documents\Visual Studio 2017\Projects\ProcurementErp\ProcurementErpVendor\BLL\Common.cs:line 89
+   at ProcurementErpVendor.BLL.ProcessResponse.InsertSuppliesInfo() in C:\Users\scezeala\Documents\Visual Studio 2017\Projects\ProcurementErp\ProcurementErpVendor\BLL\ProcessResponse.cs:line 85
+8/29/2017 12:20:01 PM Error Nullable object must have a value.
+8/29/2017 12:21:25 PM Error Nullable object must have a value.
+8/29/2017 12:22:16 PM Error Nullable object must have a value.
+9/5/2017 11:26:13 AM Error:    at System.ThrowHelper.ThrowInvalidOperationException(ExceptionResource resource)
+   at System.Nullable`1.get_Value()
+   at ProcurementErpVendor.BLL.Common.getInitiatorsEmail(Decimal Temp_No) in C:\Users\scezeala\Documents\Visual Studio 2017\Projects\ProcurementErp\ProcurementErpVendor\BLL\Common.cs:line 79
+   at ProcurementErpVendor.BLL.Common.NotifyProcurement(String VendorName, Decimal TempNo, String contentPath, String RefNum) in C:\Users\scezeala\Documents\Visual Studio 2017\Projects\ProcurementErp\ProcurementErpVendor\BLL\Common.cs:line 89
+   at ProcurementErpVendor.BLL.ProcessResponse.InsertSuppliesInfo() in C:\Users\scezeala\Documents\Visual Studio 2017\Projects\ProcurementErp\ProcurementErpVendor\BLL\ProcessResponse.cs:line 85
+9/5/2017 11:37:17 AM Error:    at System.ThrowHelper.ThrowInvalidOperationException(ExceptionResource resource)
+   at System.Nullable`1.get_Value()
+   at ProcurementErpVendor.BLL.Common.getInitiatorsEmail(Decimal Temp_No) in C:\Users\scezeala\Documents\Visual Studio 2017\Projects\ProcurementErp\ProcurementErpVendor\BLL\Common.cs:line 79
+   at ProcurementErpVendor.BLL.Common.NotifyProcurement(String VendorName, Decimal TempNo, String contentPath, String RefNum) in C:\Users\scezeala\Documents\Visual Studio 2017\Projects\ProcurementErp\ProcurementErpVendor\BLL\Common.cs:line 89
+   at ProcurementErpVendor.BLL.ProcessResponse.InsertSuppliesInfo() in C:\Users\scezeala\Documents\Visual Studio 2017\Projects\ProcurementErp\ProcurementErpVendor\BLL\ProcessResponse.cs:line 85
+9/5/2017 11:39:23 AM Error:    at System.ThrowHelper.ThrowInvalidOperationException(ExceptionResource resource)
+   at System.Nullable`1.get_Value()
+   at ProcurementErpVendor.BLL.Common.getInitiatorsEmail(Decimal Temp_No) in C:\Users\scezeala\Documents\Visual Studio 2017\Projects\ProcurementErp\ProcurementErpVendor\BLL\Common.cs:line 79
+   at ProcurementErpVendor.BLL.Common.NotifyProcurement(String VendorName, Decimal TempNo, String contentPath, String RefNum) in C:\Users\scezeala\Documents\Visual Studio 2017\Projects\ProcurementErp\ProcurementErpVendor\BLL\Common.cs:line 89
+   at ProcurementErpVendor.BLL.ProcessResponse.InsertSuppliesInfo() in C:\Users\scezeala\Documents\Visual Studio 2017\Projects\ProcurementErp\ProcurementErpVendor\BLL\ProcessResponse.cs:line 85
+9/5/2017 11:58:34 AM Error Nullable object must have a value.
+9/8/2017 10:51:37 AM Error: Validation failed for one or more entities. See 'EntityValidationErrors' property for more details.-   at System.Data.Entity.Internal.InternalContext.SaveChanges()
+   at System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   at System.Data.Entity.DbContext.SaveChanges()
+   at ProcurementErp.BLL.UpdateRequestBLL.UpdateRFQRequest() in c:\Users\scezeala\Documents\Visual Studio 2013\Projects\ProcurementErp\ProcurementErp\BLL\UpdateRequestBLL.cs:line 58
+9/8/2017 10:51:44 AM Error: Validation failed for one or more entities. See 'EntityValidationErrors' property for more details.-   at System.Data.Entity.Internal.InternalContext.SaveChanges()
+   at System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   at System.Data.Entity.DbContext.SaveChanges()
+   at ProcurementErp.BLL.UpdateRequestBLL.UpdateRFQRequest() in c:\Users\scezeala\Documents\Visual Studio 2013\Projects\ProcurementErp\ProcurementErp\BLL\UpdateRequestBLL.cs:line 58
+9/8/2017 10:51:57 AM Error: Validation failed for one or more entities. See 'EntityValidationErrors' property for more details.-   at System.Data.Entity.Internal.InternalContext.SaveChanges()
+   at System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   at System.Data.Entity.DbContext.SaveChanges()
+   at ProcurementErp.BLL.UpdateRequestBLL.UpdateRFQRequest() in c:\Users\scezeala\Documents\Visual Studio 2013\Projects\ProcurementErp\ProcurementErp\BLL\UpdateRequestBLL.cs:line 58
+9/8/2017 10:52:08 AM Error: Validation failed for one or more entities. See 'EntityValidationErrors' property for more details.-   at System.Data.Entity.Internal.InternalContext.SaveChanges()
+   at System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   at System.Data.Entity.DbContext.SaveChanges()
+   at ProcurementErp.BLL.UpdateRequestBLL.UpdateRFQRequest() in c:\Users\scezeala\Documents\Visual Studio 2013\Projects\ProcurementErp\ProcurementErp\BLL\UpdateRequestBLL.cs:line 58
+9/8/2017 10:52:46 AM Error: Validation failed for one or more entities. See 'EntityValidationErrors' property for more details.-   at System.Data.Entity.Internal.InternalContext.SaveChanges()
+   at System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   at System.Data.Entity.DbContext.SaveChanges()
+   at ProcurementErp.BLL.UpdateRequestBLL.UpdateRFQRequest() in c:\Users\scezeala\Documents\Visual Studio 2013\Projects\ProcurementErp\ProcurementErp\BLL\UpdateRequestBLL.cs:line 58
+9/8/2017 10:54:14 AM Error: Validation failed for one or more entities. See 'EntityValidationErrors' property for more details.-   at System.Data.Entity.Internal.InternalContext.SaveChanges()
+   at System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   at System.Data.Entity.DbContext.SaveChanges()
+   at ProcurementErp.BLL.UpdateRequestBLL.UpdateRFQRequest() in c:\Users\scezeala\Documents\Visual Studio 2013\Projects\ProcurementErp\ProcurementErp\BLL\UpdateRequestBLL.cs:line 58
+9/8/2017 12:08:52 PM Error retrieving data for summary display. Error: Object reference not set to an instance of an object.
+9/8/2017 12:12:04 PM Error retrieving data for summary display. Error: Object reference not set to an instance of an object.
+9/8/2017 12:13:00 PM Error retrieving data for summary display. Error: Object reference not set to an instance of an object.
+9/8/2017 4:22:21 PM Error:    at System.ThrowHelper.ThrowInvalidOperationException(ExceptionResource resource)
+   at System.Nullable`1.get_Value()
+   at ProcurementErpVendor.BLL.Common.getInitiatorsEmail(Decimal Temp_No) in c:\Users\scezeala\Documents\Visual Studio 2013\Projects\ProcurementErp\ProcurementErpVendor\BLL\Common.cs:line 79
+   at ProcurementErpVendor.BLL.Common.NotifyProcurement(String VendorName, Decimal TempNo, String contentPath, String RefNum) in c:\Users\scezeala\Documents\Visual Studio 2013\Projects\ProcurementErp\ProcurementErpVendor\BLL\Common.cs:line 89
+   at ProcurementErpVendor.BLL.ProcessResponse.InsertSuppliesInfo() in c:\Users\scezeala\Documents\Visual Studio 2013\Projects\ProcurementErp\ProcurementErpVendor\BLL\ProcessResponse.cs:line 110
+9/8/2017 4:55:37 PM Error:    at System.ThrowHelper.ThrowInvalidOperationException(ExceptionResource resource)
+   at System.Nullable`1.get_Value()
+   at ProcurementErpVendor.BLL.Common.getInitiatorsEmail(Decimal Temp_No) in c:\Users\scezeala\Documents\Visual Studio 2013\Projects\ProcurementErp\ProcurementErpVendor\BLL\Common.cs:line 79
+   at ProcurementErpVendor.BLL.Common.NotifyProcurement(String VendorName, Decimal TempNo, String contentPath, String RefNum) in c:\Users\scezeala\Documents\Visual Studio 2013\Projects\ProcurementErp\ProcurementErpVendor\BLL\Common.cs:line 89
+   at ProcurementErpVendor.BLL.ProcessResponse.InsertSuppliesInfo() in c:\Users\scezeala\Documents\Visual Studio 2013\Projects\ProcurementErp\ProcurementErpVendor\BLL\ProcessResponse.cs:line 110
+9/12/2017 7:48:41 AM Error sending mail with Error Message: Mailbox unavailable. The server response was: 5.7.1 Unable to relay
+9/12/2017 7:48:51 AM Error sending mail with Error Message: Mailbox unavailable. The server response was: 5.7.1 Unable to relay
+9/12/2017 8:27:46 AM Error:    at System.ThrowHelper.ThrowInvalidOperationException(ExceptionResource resource)
+   at System.Nullable`1.get_Value()
+   at ProcurementErpVendor.BLL.Common.getInitiatorsEmail(Decimal Temp_No) in c:\Users\scezeala\Documents\Visual Studio 2013\Projects\ProcurementErp\ProcurementErpVendor\BLL\Common.cs:line 80
+   at ProcurementErpVendor.BLL.Common.NotifyProcurement(String VendorName, Decimal TempNo, String contentPath, String RefNum) in c:\Users\scezeala\Documents\Visual Studio 2013\Projects\ProcurementErp\ProcurementErpVendor\BLL\Common.cs:line 90
+   at ProcurementErpVendor.BLL.ProcessResponse.InsertSuppliesInfo() in c:\Users\scezeala\Documents\Visual Studio 2013\Projects\ProcurementErp\ProcurementErpVendor\BLL\ProcessResponse.cs:line 127
+9/12/2017 8:46:15 AM Error:    at System.ThrowHelper.ThrowInvalidOperationException(ExceptionResource resource)
+   at System.Nullable`1.get_Value()
+   at ProcurementErpVendor.BLL.Common.getInitiatorsEmail(Decimal Temp_No) in c:\Users\scezeala\Documents\Visual Studio 2013\Projects\ProcurementErp\ProcurementErpVendor\BLL\Common.cs:line 80
+   at ProcurementErpVendor.BLL.Common.NotifyProcurement(String VendorName, Decimal TempNo, String contentPath, String RefNum) in c:\Users\scezeala\Documents\Visual Studio 2013\Projects\ProcurementErp\ProcurementErpVendor\BLL\Common.cs:line 90
+   at ProcurementErpVendor.BLL.ProcessResponse.InsertSuppliesInfo() in c:\Users\scezeala\Documents\Visual Studio 2013\Projects\ProcurementErp\ProcurementErpVendor\BLL\ProcessResponse.cs:line 128
+9/14/2017 2:16:12 PM Error: Object reference not set to an instance of an object. -    at ProcurementErp.BLL.AnalysisBLL.GetRefNumberAndRequestType() in c:\Users\scezeala\Documents\Visual Studio 2013\Projects\ProcurementErp\ProcurementErp\BLL\AnalysisBLL.cs:line 176
+9/17/2017 8:37:48 PM Error validatiing user against DB. Error: The underlying provider failed on Open.
+9/17/2017 8:37:48 PM Unable to retrieve Cost code desc from gltm_mis_CODE. Error: ORA-01033: ORACLE initialization or shutdown in progress
+9/17/2017 8:37:49 PM Unable to retrieve branch details from sttm_branch. Error: ORA-01033: ORACLE initialization or shutdown in progress
+9/21/2017 11:39:07 AM Error sending mail with Error Message: Mailbox unavailable. The server response was: 5.7.1 Unable to relay
+9/21/2017 11:39:17 AM Error sending mail with Error Message: Mailbox unavailable. The server response was: 5.7.1 Unable to relay
+9/21/2017 11:47:55 AM Error sending mail with Error Message: Mailbox unavailable. The server response was: 5.7.1 Unable to relay
+9/21/2017 11:48:05 AM Error sending mail with Error Message: Mailbox unavailable. The server response was: 5.7.1 Unable to relay
+9/21/2017 11:54:43 AM Unable to Insert into SOURCING_RFP_RFI_REQ table. Error: Nullable object must have a value.
+9/21/2017 11:54:56 AM Unable to Insert into SOURCING_RFP_RFI_REQ table. Error: Nullable object must have a value.
+9/21/2017 11:55:55 AM Unable to Insert into SOURCING_RFP_RFI_REQ table. Error: Nullable object must have a value.
+9/21/2017 12:15:00 PM Error:    at System.Data.Entity.Internal.InternalContext.SaveChanges()
+   at System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   at System.Data.Entity.DbContext.SaveChanges()
+   at ProcurementErpVendor.BLL.ProcessResponse.InsertVendorResponseToItems() in c:\Users\scezeala\Documents\Visual Studio 2013\Projects\ProcurementErp\ProcurementErpVendor\BLL\ProcessResponse.cs:line 54
+9/21/2017 1:37:24 PM Error sending mail with Error Message: Mailbox unavailable. The server response was: 5.7.1 Unable to relay
+9/21/2017 1:38:59 PM Error sending mail with Error Message: Mailbox unavailable. The server response was: 5.7.1 Unable to relay
+9/30/2017 1:45:02 PM Error: Object reference not set to an instance of an object. -    at ProcurementErp.BLL.AnalysisBLL.GetRefNumberAndRequestType() in c:\Users\scezeala\Documents\Visual Studio 2013\Projects\ProcurementErp\ProcurementErp\BLL\AnalysisBLL.cs:line 288
+10/31/2017 3:19:39 PM Error updating approval. Error: Object reference not set to an instance of an object.------------------------------------------------   at ProcurementErp.BLL.ProcessRequest.UpdateRequestApproval(SourceRequestViewModel model) in c:\Users\scezeala\Documents\Visual Studio 2013\Projects\ProcurementErp\ProcurementErp\BLL\ProcessRequest.cs:line 131
+10/31/2017 3:20:35 PM Error updating approval. Error: Object reference not set to an instance of an object.------------------------------------------------   at ProcurementErp.BLL.ProcessRequest.UpdateRequestApproval(SourceRequestViewModel model) in c:\Users\scezeala\Documents\Visual Studio 2013\Projects\ProcurementErp\ProcurementErp\BLL\ProcessRequest.cs:line 131
+10/31/2017 3:21:09 PM Error updating approval. Error: Object reference not set to an instance of an object.------------------------------------------------   at ProcurementErp.BLL.ProcessRequest.UpdateRequestApproval(SourceRequestViewModel model) in c:\Users\scezeala\Documents\Visual Studio 2013\Projects\ProcurementErp\ProcurementErp\BLL\ProcessRequest.cs:line 117
+11/1/2017 12:02:01 PM Error sending mail with Error Message: Mailbox unavailable. The server response was: 5.7.1 Unable to relay
+11/1/2017 12:02:11 PM Error sending mail with Error Message: Mailbox unavailable. The server response was: 5.7.1 Unable to relay
+11/1/2017 12:02:22 PM Error sending mail with Error Message: Mailbox unavailable. The server response was: 5.7.1 Unable to relay
+11/3/2017 8:45:24 AM Error insert into RFQ-REQ table. Error: Nullable object must have a value.------------------------------------------------   at System.ThrowHelper.ThrowInvalidOperationException(ExceptionResource resource)
+   at System.Nullable`1.get_Value()
+   at ProcurementErp.BLL.ProcessRFQ.ProcessRfqFormOne(RFQREQViewModel model) in c:\Users\scezeala\Documents\Visual Studio 2013\Projects\ProcurementErp\ProcurementErp\BLL\ProcessRFQ.cs:line 30
+11/3/2017 8:46:13 AM Error insert into RFQ-REQ table. Error: Nullable object must have a value.------------------------------------------------   at System.ThrowHelper.ThrowInvalidOperationException(ExceptionResource resource)
+   at System.Nullable`1.get_Value()
+   at ProcurementErp.BLL.ProcessRFQ.ProcessRfqFormOne(RFQREQViewModel model) in c:\Users\scezeala\Documents\Visual Studio 2013\Projects\ProcurementErp\ProcurementErp\BLL\ProcessRFQ.cs:line 30
+11/3/2017 10:17:07 AM Error retrieving count from DB. Error: The underlying provider failed on Open.
+11/3/2017 10:17:08 AM Error retrieving count. Error: The underlying provider failed on Open.------------------------------------------------   at System.Data.Entity.Core.EntityClient.EntityConnection.Open()
+   at System.Data.Entity.Core.Objects.ObjectContext.EnsureConnection(Boolean shouldMonitorTransactions)
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass7.<GetResults>b__5()
+   at System.Data.Entity.Infrastructure.DefaultExecutionStrategy.Execute[TResult](Func`1 operation)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<System.Collections.Generic.IEnumerable<T>.GetEnumerator>b__0()
+   at System.Data.Entity.Internal.LazyEnumerator`1.MoveNext()
+   at System.Linq.Enumerable.Single[TSource](IEnumerable`1 source)
+   at System.Data.Entity.Core.Objects.ELinq.ObjectQueryProvider.<GetElementFunction>b__3[TResult](IEnumerable`1 sequence)
+   at System.Data.Entity.Core.Objects.ELinq.ObjectQueryProvider.ExecuteSingle[TResult](IEnumerable`1 query, Expression queryRoot)
+   at System.Data.Entity.Core.Objects.ELinq.ObjectQueryProvider.System.Linq.IQueryProvider.Execute[TResult](Expression expression)
+   at System.Data.Entity.Internal.Linq.DbQueryProvider.Execute[TResult](Expression expression)
+   at System.Linq.Queryable.Count[TSource](IQueryable`1 source)
+   at ProcurementErp.BLL.RetrieveRequest.GetPendingRequestCount(String EmpNum) in c:\Users\scezeala\Documents\Visual Studio 2013\Projects\ProcurementErp\ProcurementErp\BLL\RetrieveRequest.cs:line 107
+11/3/2017 10:17:09 AM Unable to retrieve categories. Error Msg: The underlying provider failed on Open.------------------------------------------------   at System.Data.Entity.Core.EntityClient.EntityConnection.Open()
+   at System.Data.Entity.Core.Objects.ObjectContext.EnsureConnection(Boolean shouldMonitorTransactions)
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass7.<GetResults>b__5()
+   at System.Data.Entity.Infrastructure.DefaultExecutionStrategy.Execute[TResult](Func`1 operation)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<System.Collections.Generic.IEnumerable<T>.GetEnumerator>b__0()
+   at System.Data.Entity.Internal.LazyEnumerator`1.MoveNext()
+   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at ProcurementErp.BLL.Common.GetCategoryByParentId(Nullable`1 id) in c:\Users\scezeala\Documents\Visual Studio 2013\Projects\ProcurementErp\ProcurementErp\BLL\Common.cs:line 50
+11/3/2017 10:26:25 AM Unable to retrieve categories. Error Msg: An error occurred while executing the command definition. See the inner exception for details.
+11/3/2017 12:29:55 PM Error:    at OracleInternal.ServiceObjects.OracleCommandImpl.VerifyExecution(OracleConnectionImpl connectionImpl, Int32& cursorId, Boolean bThrowArrayBindRelatedErrors, OracleException& exceptionForArrayBindDML, Boolean& hasMoreRowsInDB, Boolean bFirstIterationDone)
+   at OracleInternal.ServiceObjects.OracleCommandImpl.ExecuteReader(String commandText, OracleParameterCollection paramColl, CommandType commandType, OracleConnectionImpl connectionImpl, OracleDataReaderImpl& rdrImpl, Int32 longFetchSize, Int64 clientInitialLOBFS, OracleDependencyImpl orclDependencyImpl, Int64[] scnForExecution, Int64[]& scnFromExecution, OracleParameterCollection& bindByPositionParamColl, Boolean& bBindParamPresent, Int64& internalInitialLOBFS, OracleException& exceptionForArrayBindDML, Boolean isDescribeOnly, Boolean isFromEF)
+   at Oracle.ManagedDataAccess.Client.OracleCommand.ExecuteReader(Boolean requery, Boolean fillRequest, CommandBehavior behavior)
+   at Oracle.ManagedDataAccess.Client.OracleCommand.ExecuteReader()
+   at ProcurementErp.Services.GetInfoFromHRMS.GetUsersInProcurementDept() in c:\Users\scezeala\Documents\Visual Studio 2013\Projects\ProcurementErp\ProcurementErp\Services\GetInfoFromHRMS.cs:line 247
+11/3/2017 12:32:11 PM Error:    at OracleInternal.ServiceObjects.OracleCommandImpl.VerifyExecution(OracleConnectionImpl connectionImpl, Int32& cursorId, Boolean bThrowArrayBindRelatedErrors, OracleException& exceptionForArrayBindDML, Boolean& hasMoreRowsInDB, Boolean bFirstIterationDone)
+   at OracleInternal.ServiceObjects.OracleCommandImpl.ExecuteReader(String commandText, OracleParameterCollection paramColl, CommandType commandType, OracleConnectionImpl connectionImpl, OracleDataReaderImpl& rdrImpl, Int32 longFetchSize, Int64 clientInitialLOBFS, OracleDependencyImpl orclDependencyImpl, Int64[] scnForExecution, Int64[]& scnFromExecution, OracleParameterCollection& bindByPositionParamColl, Boolean& bBindParamPresent, Int64& internalInitialLOBFS, OracleException& exceptionForArrayBindDML, Boolean isDescribeOnly, Boolean isFromEF)
+   at Oracle.ManagedDataAccess.Client.OracleCommand.ExecuteReader(Boolean requery, Boolean fillRequest, CommandBehavior behavior)
+   at Oracle.ManagedDataAccess.Client.OracleCommand.ExecuteReader()
+   at ProcurementErp.Services.GetInfoFromHRMS.GetUsersInProcurementDept() in c:\Users\scezeala\Documents\Visual Studio 2013\Projects\ProcurementErp\ProcurementErp\Services\GetInfoFromHRMS.cs:line 247

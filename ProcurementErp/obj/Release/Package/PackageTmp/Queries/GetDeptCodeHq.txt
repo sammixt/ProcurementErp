@@ -1,0 +1,6 @@
+SELECT distinct(gcc.segment3)
+FROM apps.per_people_x@oracle_erp ppx,
+     apps.per_assignments_x@oracle_erp pax,
+     apps.gl_code_combinations_kfv@oracle_erp gcc
+WHERE ppx.person_id = pax.person_id
+AND pax.default_code_comb_id = gcc.code_combination_id AND  gcc.segment2 LIKE  '000'

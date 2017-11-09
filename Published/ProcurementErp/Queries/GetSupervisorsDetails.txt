@@ -1,0 +1,11 @@
+SELECT *
+FROM apps.per_people_x@oracle_erp ppx,
+     apps.per_assignments_x@oracle_erp pax,
+     apps.gl_code_combinations_kfv@oracle_erp gcc
+WHERE ppx.person_id = pax.person_id
+AND pax.default_code_comb_id = gcc.code_combination_id AND  pax.PERSON_ID = (SELECT SUPERVISOR_ID
+FROM apps.per_people_x@oracle_erp ppx,
+     apps.per_assignments_x@oracle_erp pax,
+     apps.gl_code_combinations_kfv@oracle_erp gcc
+WHERE ppx.person_id = pax.person_id
+AND pax.default_code_comb_id = gcc.code_combination_id AND pax.ASSIGNMENT_NUMBER = '{EMP_NUM}')

@@ -1,0 +1,93 @@
+﻿@model ProcurementErp.ViewModels.LoginViewModel
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Procuremenr ERP | Log in</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <!-- Bootstrap 3.3.6 -->
+    <link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="~/dist/css/AdminLTE.min.css">
+    <!-- iCheck -->
+    <link rel="stylesheet" href="~/plugins/iCheck/square/blue.css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body class="hold-transition login-page" style="overflow-y:hidden">
+    <div class="login-box" style="background:#00adef; opacity:0.7">
+        <div class="login-logo" style="padding:7px 7px 2px 0">
+            <a href="#">
+                <img src="~/dist/img/logo-main.png" style="margin-top:10px" />
+            </a>
+        </div>
+        <!-- /.login-logo -->
+        <div class="login-box-body" style="background:#00adef">
+            <p class="login-box-msg">Login using your AD credential</p>
+
+            @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { id = "loginForm", role = "form" }))
+            {
+                @*@Html.AntiForgeryToken()*@
+                <div class="form-group has-feedback">
+                    @Html.TextBoxFor(m => m.UserName, new { @class = "form-control", @placeholder = "Enter your username." })
+                    @Html.ValidationMessageFor(m => m.UserName)
+                    <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+                </div>
+                <div class="form-group has-feedback">
+                    @Html.PasswordFor(m => m.Password, new { @class = "form-control", @placeholder = "Enter your password." })
+                    @Html.ValidationMessageFor(m => m.Password)
+                    <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                </div>
+                <div class="row">
+                    <!-- /.col -->
+                    <div class="col-xs-12 text-center">
+                        <input type="submit" class="btn btn-primary btn-block btn-flat" value="Sign In" onclick="Disable(this)" />
+                    </div>
+                    <!-- /.col -->
+                </div>
+                if (ViewBag.ErrorMessage != null)
+                {
+                    <br /><br />
+                    <div class="alert alert-danger">
+                        <p><b>Login failed!</b> @ViewBag.ErrorMessage</p>
+                    </div>
+                }
+            }
+        </div>
+        <!-- /.login-box-body -->
+    </div>
+    <!-- /.login-box -->
+    <!-- jQuery 2.2.3 -->
+    <script src="~/plugins/jQuery/jquery-2.2.3.min.js"></script>
+    <!-- Bootstrap 3.3.6 -->
+    <script src="~/bootstrap/js/bootstrap.min.js"></script>
+    <!-- iCheck -->
+    <script src="~/plugins/iCheck/icheck.min.js"></script>
+    <script>
+    function Disable(btn) {
+        var $form = $("#loginForm");
+
+        if ($form.valid()) {
+            setTimeout(function () {
+                $(btn).attr('disabled', 'disabled');
+                $(btn).val("Please wait...");
+            }, 100);
+             }
+        }   
+    </script>
+</body>
+</html>

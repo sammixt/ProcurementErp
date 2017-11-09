@@ -1,0 +1,71 @@
+﻿@model ProcurementErp.ViewModels.RFQREQViewModel
+@{
+    ViewBag.Title = "EditRFQForm";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header" id="RequestHistoryContainer">
+        <h1>
+            Update Request For Quotation
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li class="">Update Request</li>
+            <li class="active">RFQ</li>
+        </ol>
+    </section>
+    <section class="content" id="Roles">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="box box-primary">
+                    <div class="box-header with-border">
+                        <p style="text-transform:uppercase">
+                            Update RFQ Request 
+                            @if (ViewBag.ErrorMessage != null)
+                            {
+                                <span class="text-uppercase text-danger">
+                                    @ViewBag.ErrorMessage
+                                </span>
+                            }
+                        </p>
+                    </div>
+                    <div class="box-body">
+                        <div class="col-md-10 col-md-offset-2">
+                            @using (Html.BeginForm("UpdateRFQForm", "UpdateRequest", FormMethod.Post, new { role = "form", enctype = "multipart/form-data", id = "NewRequestForm" }))
+                            {
+                                <div class="box-body">
+                                    <div class="form-group col-md-12">
+                                        <div class="col-md-4">
+                                            <label for="RFQ_START_DATE">RFQ Request Date</label>
+                                            <input value="@(Model.RFQ_START_DATE.Value.ToShortDateString()??null)" type="text" data-provide="datepicker" readonly class="form-control" id="RFQ_START_DATE" name="RFQ_START_DATE" placeholder="mm/dd/yyyy">
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label for="RFQ_CLOSE_DATE">RFQ Closing Date</label>
+                                            <input value="@(Model.RFQ_CLOSE_DATE.Value.ToShortDateString() ?? null)" type="text" data-provide="datepicker" readonly class="form-control" id="RFQ_CLOSE_DATE" name="RFQ_CLOSE_DATE" placeholder="mm/dd/yyyy">
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                    <div class="form-group col-md-12">
+                                        <div class="col-md-8">
+                                            <label for="DELIVERY_ADDRESS">Delivery Address</label>
+                                            <textarea class="form-control" name="DELIVERY_ADDRESS" rows="3">@(Model.DELIVERY_ADDRESS ?? null)</textarea>
+                                            <input type="hidden" name="TEMP_NO" value="@Model.TEMP_NO">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group col-md-12 col-md-offset-3">
+                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                    </div>
+
+                                </div>
+                                <!-- /.box-body -->
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+

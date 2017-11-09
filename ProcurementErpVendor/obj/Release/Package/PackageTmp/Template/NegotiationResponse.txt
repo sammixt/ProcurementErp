@@ -1,0 +1,1 @@
+﻿{VendorName} just responed to the negotiated price. Log on to the Manage Sourcing application to view {VendorName} response.

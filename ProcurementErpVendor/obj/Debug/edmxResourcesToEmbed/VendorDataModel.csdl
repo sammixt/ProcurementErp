@@ -1,0 +1,242 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="VendorModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="SOURCING_CATEGORIES">
+    <Key>
+      <PropertyRef Name="CATEGORY_NUM" />
+    </Key>
+    <Property Name="CATEGORY_NUM" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="CATEGORY_NAME" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="CATEGORY_PARENT" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="CATEGORY_STATE" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="SOURCING_USERS" Relationship="Self.FK_USER_CAT" FromRole="SOURCING_CATEGORIES" ToRole="SOURCING_USERS" />
+  </EntityType>
+  <EntityType Name="SOURCING_CONTACTEDVENDOR">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="VENDOR_ID" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="TEMP_NO" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="VENDOR_NAME" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="RESPONSE_DATE" Type="DateTime" />
+    <Property Name="AUTO_EMAIL" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ADDRESS" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="TELEPHONE" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="EXPECTED_DELIVERY_DATE" Type="DateTime" />
+    <Property Name="PAYMENT_TERMS" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="SUPPLIERS_QUOTE" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="EMAIL" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="SOURCING_CONTACTPERSON">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="TEMP_NO" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="NAME" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="DESIGNATION" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="DEPARTMENT" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="TELEPHONE" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="CONTACT_TYPE" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="EMAIL" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="SOURCING_REF_TEMP_LINK">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="TEMP_NO" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="REF_NO" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="REQ_TYPE" Type="Decimal" Precision="38" Scale="0" />
+  </EntityType>
+  <EntityType Name="SOURCING_REQUEST">
+    <Key>
+      <PropertyRef Name="TEMP_ID" />
+    </Key>
+    <Property Name="TEMP_ID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="ITEM_CATEGORY" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="INITIATOR_NAME" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="INITIATOR_NUMBER" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="INITIATING_BRANCH" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="INITIATING_BRANCHCODE" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="INITIATING_DEPT" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="INITIATING_DEPTCODE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="INITIATION_DATE" Type="DateTime" />
+    <Property Name="LINE_MANAGER_NUM" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="LINE_MANAGER_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="LINE_MANAGER_APPR" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="LINE_MANAGER_APPR_DATE" Type="DateTime" />
+    <Property Name="BUYER_STATUS" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="BUYER_COMMENT" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="PREFERED_VENDOR" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="PREFERED_VENDOR_ID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="ITEM_DESCRIPTION" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="EXPECTED_DELIVERY_DATE" Type="DateTime" />
+    <Property Name="INITIATOR_EMAIL" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="LINE_MANAGER_EMAIL" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="ITEM_CATEGORY_ID" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="PROCUREMENT_BUYER" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="PROCUREMENT_BUYER_ID" Type="Decimal" Precision="38" Scale="0" />
+  </EntityType>
+  <EntityType Name="SOURCING_REQUEST_FILES">
+    <Key>
+      <PropertyRef Name="FIILE_ID" />
+    </Key>
+    <Property Name="FIILE_ID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="SOURCE_REQ_ID" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="FILENAME" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="FILETYPE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="FILE_PATH" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="SOURCING_REQUEST_TYPE">
+    <Key>
+      <PropertyRef Name="REQUEST_ID" />
+    </Key>
+    <Property Name="REQUEST_ID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="REQUEST_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="REQUEST_SHORTCODE" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="SOURCING_RFP_RFI_REQ">
+    <Key>
+      <PropertyRef Name="TEMP_ID" />
+    </Key>
+    <Property Name="TEMP_ID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="PRJECT_TITLE" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="ISSUE_DATE" Type="DateTime" />
+    <Property Name="DUE_DATE" Type="DateTime" />
+    <Property Name="DUE_TIME" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="UBN_OVERVIEW" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="PROJECT_OBJECTIVE" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="WORK_SCOPE" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="TECHNICAL_PROPOSAL" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="LST_QRY_RECEIPT_DATE" Type="DateTime" />
+    <Property Name="BANK_QRY_RES_DATE" Type="DateTime" />
+    <Property Name="LST_RPF_RECPT_DATE" Type="DateTime" />
+    <Property Name="INITIATOR" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="INITIATOR_NAME" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="INITIATION_DATE" Type="DateTime" />
+    <Property Name="STATUS" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="SOURCING_RFQ_ITEM">
+    <Key>
+      <PropertyRef Name="ITEM_NO" />
+    </Key>
+    <Property Name="ITEM_NO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="TEMP_NO" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="QUANTITY" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="UNIT_OF_MEAS" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="DESCRIPTION" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="UNIT_PRICE" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="TOTAL_PRICE" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="RFI_INFO" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="SOURCING_RFQ_QUOTATION">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="VENDOR_ID" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="ITEM_NO" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="UNIT_PRICE" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="TOTAL_PRICE" Type="Decimal" Precision="38" Scale="0" />
+  </EntityType>
+  <EntityType Name="SOURCING_RFQ_REQ">
+    <Key>
+      <PropertyRef Name="TEMP_NO" />
+    </Key>
+    <Property Name="TEMP_NO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="RFQ_START_DATE" Type="DateTime" />
+    <Property Name="RFQ_CLOSE_DATE" Type="DateTime" />
+    <Property Name="INITIATOR_ID" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="INITIATOR_NAME" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="DELIVERY_ADDRESS" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="STATUS" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="SOURCING_ROLES">
+    <Key>
+      <PropertyRef Name="ROLE_ID" />
+    </Key>
+    <Property Name="ROLE_ID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="ROLE_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="STATUS" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="SOURCING_USERS" Relationship="Self.FK_USER_ROLE" FromRole="SOURCING_ROLES" ToRole="SOURCING_USERS" />
+  </EntityType>
+  <EntityType Name="SOURCING_USERS">
+    <Key>
+      <PropertyRef Name="USER_ID" />
+    </Key>
+    <Property Name="USER_ID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="USERNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="EMAIL" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="EMP_NUM" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="NAME" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="DESIGNATION" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="DEPARTMENT" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="TELEPHONE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CATEGORY" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ROLE" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="STATUS" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="CATEGORY_ID" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="ROLE_ID" Type="Decimal" Precision="38" Scale="0" />
+    <NavigationProperty Name="SOURCING_CATEGORIES" Relationship="Self.FK_USER_CAT" FromRole="SOURCING_USERS" ToRole="SOURCING_CATEGORIES" />
+    <NavigationProperty Name="SOURCING_ROLES" Relationship="Self.FK_USER_ROLE" FromRole="SOURCING_USERS" ToRole="SOURCING_ROLES" />
+  </EntityType>
+  <EntityType Name="SOURCING_VENDOR_LOGIN_DETAILS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="USERNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PASSWORD" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="LASTLOGIN" Type="DateTime" />
+    <Property Name="VENDOR_ID" Type="Decimal" Precision="38" Scale="0" />
+  </EntityType>
+  <Association Name="FK_USER_CAT">
+    <End Role="SOURCING_CATEGORIES" Type="Self.SOURCING_CATEGORIES" Multiplicity="0..1" />
+    <End Role="SOURCING_USERS" Type="Self.SOURCING_USERS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SOURCING_CATEGORIES">
+        <PropertyRef Name="CATEGORY_NUM" />
+      </Principal>
+      <Dependent Role="SOURCING_USERS">
+        <PropertyRef Name="CATEGORY_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_USER_ROLE">
+    <End Role="SOURCING_ROLES" Type="Self.SOURCING_ROLES" Multiplicity="0..1" />
+    <End Role="SOURCING_USERS" Type="Self.SOURCING_USERS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SOURCING_ROLES">
+        <PropertyRef Name="ROLE_ID" />
+      </Principal>
+      <Dependent Role="SOURCING_USERS">
+        <PropertyRef Name="ROLE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="VendorEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="SOURCING_CATEGORIES" EntityType="Self.SOURCING_CATEGORIES" />
+    <EntitySet Name="SOURCING_CONTACTEDVENDOR" EntityType="Self.SOURCING_CONTACTEDVENDOR" />
+    <EntitySet Name="SOURCING_CONTACTPERSON" EntityType="Self.SOURCING_CONTACTPERSON" />
+    <EntitySet Name="SOURCING_REF_TEMP_LINK" EntityType="Self.SOURCING_REF_TEMP_LINK" />
+    <EntitySet Name="SOURCING_REQUEST" EntityType="Self.SOURCING_REQUEST" />
+    <EntitySet Name="SOURCING_REQUEST_FILES" EntityType="Self.SOURCING_REQUEST_FILES" />
+    <EntitySet Name="SOURCING_REQUEST_TYPE" EntityType="Self.SOURCING_REQUEST_TYPE" />
+    <EntitySet Name="SOURCING_RFP_RFI_REQ" EntityType="Self.SOURCING_RFP_RFI_REQ" />
+    <EntitySet Name="SOURCING_RFQ_ITEM" EntityType="Self.SOURCING_RFQ_ITEM" />
+    <EntitySet Name="SOURCING_RFQ_QUOTATION" EntityType="Self.SOURCING_RFQ_QUOTATION" />
+    <EntitySet Name="SOURCING_RFQ_REQ" EntityType="Self.SOURCING_RFQ_REQ" />
+    <EntitySet Name="SOURCING_ROLES" EntityType="Self.SOURCING_ROLES" />
+    <EntitySet Name="SOURCING_USERS" EntityType="Self.SOURCING_USERS" />
+    <EntitySet Name="SOURCING_VENDOR_LOGIN_DETAILS" EntityType="Self.SOURCING_VENDOR_LOGIN_DETAILS" />
+    <AssociationSet Name="FK_USER_CAT" Association="Self.FK_USER_CAT">
+      <End Role="SOURCING_CATEGORIES" EntitySet="SOURCING_CATEGORIES" />
+      <End Role="SOURCING_USERS" EntitySet="SOURCING_USERS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_USER_ROLE" Association="Self.FK_USER_ROLE">
+      <End Role="SOURCING_ROLES" EntitySet="SOURCING_ROLES" />
+      <End Role="SOURCING_USERS" EntitySet="SOURCING_USERS" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
